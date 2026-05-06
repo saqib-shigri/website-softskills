@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Our Courses - Soft Skills Engineering</title>
+
+    <!-- Poppins Font Family - Brand Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Midnight Navy - brand primary background */
+            background-color: #010521;
+            overflow-x: hidden;
+            color: #ffffff;
+            line-height: 1.4;
+            width: 100%;
+            position: relative;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #B00515, #101D54, #B00515);
+            z-index: 10000;
+            transition: width 0.1s ease;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #B00515;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #8a0410;
+            transform: translateY(-5px);
+        }
+
+        .sheryians-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            width: 100%;
+            background-color: transparent;
+            border-bottom: 1px solid rgba(176, 5, 21, 0.2);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .nav-scrolled {
+            background-color: rgba(1, 5, 33, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom-color: rgba(176, 5, 21, 0.4);
+        }
+
+        .nav-container {
+            max-width: 100%;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            position: relative;
+        }
+
+        .brand-wrapper {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px;
+            text-decoration: none;
+            white-space: nowrap;
+            margin-left: 0;
+        }
+
+        .nav-logo-img {
+            height: 35px;
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .brand-divider {
+            width: 1px;
+            height: 24px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-title {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            color: #B00515;
+            font-weight: 500;
+            font-size: 9px;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+            padding: 6px 24px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(176, 5, 21, 0.3);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 12px;
+            font-weight: 500;
+            color: #fff;
+            overflow: hidden;
+            height: 18px;
+            display: block;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .link-text {
+            display: block;
+            transition: 0.4s transform cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .link-hover {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            color: #B00515;
+            transition: 0.4s transform cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .nav-link:hover .link-text {
+            transform: translateY(-100%);
+        }
+
+        .nav-link:hover .link-hover {
+            transform: translateY(-100%);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: rgba(1, 5, 33, 0.98);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(176, 5, 21, 0.4);
+            border-radius: 12px;
+            padding: 8px 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 8px 20px;
+            font-size: 11px;
+            color: #d1d5db;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(176, 5, 21, 0.15);
+            color: #B00515;
+        }
+
+        .nav-button-cta {
+            background: linear-gradient(135deg, #B00515, #8a0410, #B00515);
+            background-size: 200% 200%;
+            color: white;
+            font-weight: 600;
+            font-size: 12px;
+            padding: 6px 18px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: gradientShift 3s ease infinite;
+            box-shadow: 0 0 8px rgba(176, 5, 21, 0.5);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .nav-button-cta:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(176, 5, 21, 0.5);
+            animation: none;
+            background: linear-gradient(135deg, #8a0410, #B00515);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #010521;
+            z-index: 998;
+            padding-top: 80px;
+            text-align: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu.show {
+            display: flex;
+        }
+
+        @media (max-width: 1100px) {
+            .nav-menu {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .nav-button-cta {
+                display: none !important;
+            }
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            z-index: 1001;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            background-color: #128c7e;
+        }
+
+        /* Flip Card Styles - Brand Colors */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 450px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, rgba(16, 29, 84, 0.95), rgba(1, 5, 33, 0.98));
+            border: 1px solid rgba(176, 5, 21, 0.3);
+        }
+
+        .flip-card-front {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+            border: 1px solid rgba(176, 5, 21, 0.5);
+            overflow-y: auto;
+            text-align: left;
+            justify-content: flex-start;
+        }
+
+        .flip-card-front i {
+            font-size: 3rem;
+            color: #B00515;
+            margin-bottom: 1rem;
+        }
+
+        .flip-card-front h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .flip-card-front p {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            text-align: center;
+        }
+
+        .flip-card-back h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #B00515;
+            margin-bottom: 0.75rem;
+        }
+
+        .flip-card-back p {
+            font-size: 0.75rem;
+            color: #d1d5db;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .course-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .course-list li {
+            font-size: 0.7rem;
+            color: #9ca3af;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .course-list li:hover {
+            color: #B00515;
+            transform: translateX(5px);
+        }
+
+        .course-list li i {
+            color: #B00515;
+            font-size: 0.6rem;
+        }
+
+        .click-me-btn {
+            background: transparent;
+            border: 1px solid rgba(176, 5, 21, 0.4);
+            color: #B00515;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .click-me-btn:hover {
+            background: rgba(176, 5, 21, 0.15);
+            border-color: #B00515;
+        }
+
+        .quote-btn {
+            background-color: #B00515;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .quote-btn:hover {
+            background-color: #8a0410;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 120px 20px 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-header h1 span {
+            color: #B00515;
+        }
+
+        .page-header p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Popup Modal Styles - Brand Colors */
+        .course-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(1, 5, 33, 0.98);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .course-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #101D54, #010521);
+            border: 1px solid rgba(176, 5, 21, 0.4);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 90%;
+            width: 550px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #B00515;
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: #8a0410;
+        }
+
+        .modal-content {
+            scrollbar-width: thin;
+            scrollbar-color: #B00515 #1a1a1a;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #B00515;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            color: #8a0410;
+            transform: scale(1.1);
+        }
+
+        .modal-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #B00515;
+            margin-bottom: 1rem;
+            padding-right: 25px;
+        }
+
+        .modal-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .modal-content p {
+            font-size: 0.85rem;
+            color: #d1d5db;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-content li {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .modal-content li i {
+            color: #B00515;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .footer-link-custom {
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.7rem;
+            color: #9ca3af;
+        }
+
+        .footer-link-custom:hover {
+            color: #B00515;
+            transform: translateX(3px);
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(176, 5, 21, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .social-icon:hover {
+            background: #B00515;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            .flip-card {
+                height: 500px;
+            }
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            .modal-content {
+                width: 95%;
+                padding: 1.5rem;
+                max-height: 90vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scroll-progress"></div>
+    <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+    <a href="https://wa.me/923002457241?text=Hi,%20I'm%20interested%20in%20Soft%20Skills%20Engineering%20training."
+        class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <nav class="sheryians-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-wrapper" id="logoAnim">
+                <img src="static/image/logo.png" alt="Logo" class="nav-logo-img">
+                <div class="brand-divider"></div>
+                <div class="logo-text-group">
+                    <span class="logo-title">Soft Skills</span>
+                    <span class="logo-subtitle">Engineering</span>
+                </div>
+            </a>
+            <ul class="nav-menu" id="menuAnim">
+                <li><a href="index.html" class="nav-link"><span class="link-text">Home</span><span class="link-hover">Home</span></a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link"><span class="link-text">Services</span><span class="link-hover">Services</span></a>
+                    <div class="dropdown-menu"><a href="services.html#soft-skills">Soft Skills & Leadership</a><a href="services.html#corporate">Corporate Training</a><a href="services.html#digital-marketing">Digital Marketing</a><a href="services.html#it-ecommerce">IT & Ecommerce</a><a href="services.html#ai">AI & Emerging Tech</a><a href="services.html#health-safety">Health & Safety</a></div>
+                </li>
+                <li class="nav-item"><a href="projects.html" class="nav-link"><span class="link-text">Projects</span><span class="link-hover">Projects</span></a>
+                    <div class="dropdown-menu"><a href="projects.html#zeetech-web">Zeetech Website</a><a href="projects.html#zeetech-app">Zeetech Mobile App</a><a href="projects.html#zeetech-smm">Zeetech Social Media</a><a href="projects.html#ecommerce">E-Commerce Platform</a><a href="projects.html#training-portal">Corporate Training Portal</a><a href="projects.html#ai-chatbot">AI Chatbot Solution</a></div>
+                </li>
+                <li class="nav-item"><a href="courses.html" class="nav-link"><span class="link-text">Courses</span><span class="link-hover">Courses</span></a>
+                    <div class="dropdown-menu"><a href="#it-dev">IT & Development</a><a href="#marketing">Marketing & Creative</a><a href="#technical">Technical Skills</a><a href="#ai">AI & Emerging Tech</a><a href="#health-safety">Health & Safety</a><a href="#trading">Trading & Finance</a></div>
+                </li>
+                <li class="nav-item"><a href="careers.html" class="nav-link"><span class="link-text">Careers</span><span class="link-hover">Careers</span></a>
+                    <div class="dropdown-menu"><a href="careers.html#trainer">Senior Soft Skills Trainer</a><a href="careers.html#marketing">Digital Marketing Specialist</a><a href="careers.html#developer">Web Developer</a><a href="careers.html#sales">Corporate Sales Executive</a><a href="careers.html#intern">AI/ML Intern</a></div>
+                </li>
+                <li class="nav-item"><a href="contact.html" class="nav-link"><span class="link-text">Contact</span><span class="link-hover">Contact</span></a>
+                    <div class="dropdown-menu"><a href="contact.html#form">Contact Form</a><a href="contact.html#map">Our Location</a><a href="https://wa.me/923002457241">WhatsApp Us</a></div>
+                </li>
+            </ul>
+            <div class="flex items-center gap-3" id="btnAnim">
+                <a href="https://wa.me/923002457241" class="nav-button-cta"><i class="fas fa-rocket"></i> Get Started</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="courses.html">Courses</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/923002457241">Get Started</a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header" data-aos="fade-up">
+        <h1>Our <span>Programs</span></h1>
+        <p>Your journey to professional excellence starts here. Learn, Grow, and Succeed with our comprehensive training modules.</p>
+    </div>
+
+    <!-- Courses Flip Cards Grid -->
+    <div class="courses-grid">
+        <!-- Course 1 - IT & Development -->
+        <div class="flip-card" id="it-dev" data-aos="flip-left">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="fas fa-code"></i>
+                    <h3>IT & Development</h3>
+                    <p>Software & Web Solutions</p>
+                    <button class="click-me-btn" data-course="main-it-dev">Get More</button>
+                </div>
+                <div class="flip-card-back">
+                    <h4>IT & Development</h4>
+                    <p>Comprehensive IT and development training for modern tech careers.</p>
+                    <ul class="course-list">
+                        <li data-course="web-development">Website Development</li>
+                        <li data-course="web-app-dev">Web Application Development</li>
+                        <li data-course="mobile-app-dev">Mobile App Development (Flutter)</li>
+                        <li data-course="python-dev">Python Development</li>
+                    </ul>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20IT%20%26%20Development%20courses" class="quote-btn" target="_blank">Get Quotation →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course 2 - Marketing & Creative -->
+        <div class="flip-card" id="marketing" data-aos="flip-left" data-aos-delay="100">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Marketing & Creative</h3>
+                    <p>Digital Growth Solutions</p>
+                    <button class="click-me-btn" data-course="main-marketing">Get More</button>
+                </div>
+                <div class="flip-card-back">
+                    <h4>Marketing & Creative</h4>
+                    <p>Digital marketing and creative skills for the modern marketplace.</p>
+                    <ul class="course-list">
+                        <li data-course="digital-marketing">Digital Marketing</li>
+                        <li data-course="seo-services">SEO Services</li>
+                        <li data-course="graphic-design">Graphic Designing</li>
+                        <li data-course="video-editing">Video Editing</li>
+                    </ul>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Marketing%20%26%20Creative%20courses" class="quote-btn" target="_blank">Get Quotation →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course 3 - Technical Skills -->
+        <div class="flip-card" id="technical" data-aos="flip-left" data-aos-delay="200">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Technical Skills</h3>
+                    <p>Professional Trade Training</p>
+                    <button class="click-me-btn" data-course="main-technical">Get More</button>
+                </div>
+                <div class="flip-card-back">
+                    <h4>Technical Skills</h4>
+                    <p>Professional technical training for hands-on careers.</p>
+                    <ul class="course-list">
+                        <li data-course="domestic-electrician">Domestic Electrician</li>
+                        <li data-course="industrial-electrician">Industrial Electrician</li>
+                        <li data-course="solar-technician">Solar Technician</li>
+                        <li data-course="rac-technician">RAC Technician</li>
+                        <li data-course="cctv-technician">CCTV Technician</li>
+                    </ul>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Technical%20Skills%20courses" class="quote-btn" target="_blank">Get Quotation →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course 4 - AI & Emerging Tech -->
+        <div class="flip-card" id="ai" data-aos="flip-left" data-aos-delay="300">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI & Emerging Tech</h3>
+                    <p>Future-Ready Technologies</p>
+                    <button class="click-me-btn" data-course="main-ai">Get More</button>
+                </div>
+                <div class="flip-card-back">
+                    <h4>AI & Emerging Tech</h4>
+                    <p>Cutting-edge AI and emerging technology courses.</p>
+                    <ul class="course-list">
+                        <li data-course="artificial-intelligence">Artificial Intelligence</li>
+                        <li data-course="machine-learning">Machine Learning</li>
+                        <li data-course="generative-ai">Generative AI & Chatbot Development</li>
+                        <li data-course="workflow-automation">Workflow Automation</li>
+                    </ul>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20AI%20%26%20Emerging%20Tech%20courses" class="quote-btn" target="_blank">Get Quotation →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course 5 - Health & Safety -->
+        <div class="flip-card" id="health-safety" data-aos="flip-left" data-aos-delay="400">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="fas fa-helmet-safety"></i>
+                    <h3>Health & Safety</h3>
+                    <p>International Certifications</p>
+                    <button class="click-me-btn" data-course="main-health-safety">Get More</button>
+                </div>
+                <div class="flip-card-back">
+                    <h4>Health & Safety</h4>
+                    <p>Internationally recognized health and safety certifications.</p>
+                    <ul class="course-list">
+                        <li data-course="nebosh">NEBOSH</li>
+                        <li data-course="osha">OSHA</li>
+                        <li data-course="iosh">IOSH</li>
+                        <li data-course="iso-ohsas">ISO OHSAS (US)</li>
+                        <li data-course="iso-hse">ISO HSE (UK)</li>
+                        <li data-course="level-2-safety">Level 2 Safety Certifications</li>
+                    </ul>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Health%20%26%20Safety%20courses" class="quote-btn" target="_blank">Get Quotation →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course 6 - Trading & Finance -->
+        <div class="flip-card" id="trading" data-aos="flip-left" data-aos-delay="500">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="fas fa-chart-simple"></i>
+                    <h3>Trading & Finance</h3>
+                    <p>Financial Markets Mastery</p>
+                    <button class="click-me-btn" data-course="main-trading">Get More</button>
+                </div>
+                <div class="flip-card-back">
+                    <h4>Trading & Finance</h4>
+                    <p>Master financial markets and trading strategies.</p>
+                    <ul class="course-list">
+                        <li data-course="forex-trading">Forex Trading & Financial Markets</li>
+                        <li data-course="learn-grow">Learn Grow Succeed</li>
+                    </ul>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Trading%20%26%20Finance%20courses" class="quote-btn" target="_blank">Get Quotation →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="courseModal" class="course-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <div id="modalBody"></div>
+            <a href="#" id="modalWhatsappLink" class="quote-btn" style="display: inline-block; margin-top: 1rem;" target="_blank">Get Quotation →</a>
+        </div>
+    </div>
+
+    <!-- Footer - Brand Colors -->
+    <footer class="bg-[#010521] pt-8 pb-4 border-t border-[#B00515]/20 mt-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <div>
+                    <div class="brand-wrapper flex items-center gap-2 mb-3">
+                        <img src="static/image/logo.png" alt="Logo" class="h-8">
+                    </div>
+                    <p class="text-gray-500 text-[0.65rem] mb-3">Empowering professionals through practical soft skills training and modern IT solutions.</p>
+                    <div class="flex gap-2">
+                        <a href="https://www.facebook.com/softskillsengineering" target="_blank" class="social-icon"><i class="fab fa-facebook-f text-xs"></i></a>
+                        <a href="https://www.instagram.com/softskillsengineering" target="_blank" class="social-icon"><i class="fab fa-instagram text-xs"></i></a>
+                        <a href="https://www.linkedin.com/company/softskillsengineering" target="_blank" class="social-icon"><i class="fab fa-linkedin-in text-xs"></i></a>
+                        <a href="https://www.twitter.com/softskillseng" target="_blank" class="social-icon"><i class="fab fa-twitter text-xs"></i></a>
+                        <a href="https://www.tiktok.com/@soft.skills59?_r=1&_t=ZS-968LETVxgSj" target="_blank" class="social-icon"><i class="fab fa-tiktok text-xs"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="index.html" class="footer-link-custom">Home</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Core Solutions</a></li>
+                        <li><a href="projects.html" class="footer-link-custom">Our Projects</a></li>
+                        <li><a href="courses.html" class="footer-link-custom">Programs</a></li>
+                        <li><a href="careers.html" class="footer-link-custom">Careers</a></li>
+                        <li><a href="contact.html" class="footer-link-custom">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Our Services</h4>
+                    <ul class="space-y-1">
+                        <li><a href="services.html" class="footer-link-custom">Soft Skills Training</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Leadership Development</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Corporate Training</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Digital Marketing</a></li>
+                        <li><a href="services.html" class="footer-link-custom">IT & Ecommerce</a></li>
+                        <li><a href="services.html" class="footer-link-custom">AI & Automation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Contact Info</h4>
+                    <p class="text-gray-500 text-[0.65rem] mb-2"><i class="fas fa-location-dot mr-2 text-[#B00515]"></i> D-110 5th floor, 6th Road, Satellite Town, Rawalpindi</p>
+                    <p class="text-gray-500 text-[0.65rem] mb-2"><i class="fas fa-phone mr-2 text-[#B00515]"></i> +92 300 2457241</p>
+                    <p class="text-gray-500 text-[0.65rem]"><i class="fas fa-envelope mr-2 text-[#B00515]"></i> info@softskills.it.com</p>
+                </div>
+            </div>
+            <div class="border-t border-[#B00515]/20 pt-4 text-center">
+                <p class="text-gray-500 text-[0.6rem]">© 2026 Soft Skills Engineering | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // All JavaScript functionality remains exactly the same as original
+        AOS.init({ once: true, duration: 800 });
+
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) backToTop.classList.add('show');
+            else backToTop.classList.remove('show');
+        });
+
+        document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        window.addEventListener('load', () => {
+            gsap.to(".sheryians-nav", { opacity: 1, y: 0, duration: 0.8 });
+            gsap.from("#logoAnim", { x: -20, opacity: 0, duration: 0.5 });
+            gsap.from("#menuAnim", { y: -10, opacity: 0, duration: 0.5 });
+            gsap.from("#btnAnim", { scale: 0.8, opacity: 0, duration: 0.4 });
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) nav.classList.add('nav-scrolled');
+            else nav.classList.remove('nav-scrolled');
+        });
+
+        // Course Details Data (same as original, just color references updated in CSS)
+        const courseDetails = {
+            'main-it-dev': { title: 'IT & Development Program', description: 'Comprehensive IT and development training for modern tech careers.', duration: '6 Months', fee: 'Contact for fee structure', modules: ['Web Development Fundamentals', 'Frontend with React', 'Backend with Node.js', 'Database Management', 'Project Deployment'], benefits: ['High-demand tech skills', 'Job-ready portfolio', 'Industry-recognized certification', 'Freelancing opportunities'] },
+            'main-marketing': { title: 'Marketing & Creative Program', description: 'Digital marketing and creative skills for the modern marketplace.', duration: '4 Months', fee: 'Contact for fee structure', modules: ['Digital Marketing Strategy', 'SEO & SEM', 'Social Media Management', 'Content Creation', 'Analytics & Reporting'], benefits: ['Career in digital marketing', 'Creative portfolio development', 'Freelance opportunities', 'Agency-ready skills'] },
+            'main-technical': { title: 'Technical Skills Program', description: 'Professional technical training for hands-on careers.', duration: '3-6 Months (varies by trade)', fee: 'Contact for fee structure', modules: ['Electrical Systems Basics', 'Advanced Electrical Training', 'Solar Panel Installation', 'HVAC Systems', 'Safety Protocols'], benefits: ['Practical hands-on training', 'Industry certification', 'Job placement assistance', 'Entrepreneurship opportunities'] },
+            'main-ai': { title: 'AI & Emerging Tech Program', description: 'Cutting-edge AI and emerging technology courses.', duration: '6 Months', fee: 'Contact for fee structure', modules: ['Python for AI', 'Machine Learning Algorithms', 'Deep Learning', 'NLP & Chatbots', 'AI Project Deployment'], benefits: ['Future-proof career', 'High salary potential', 'Innovation-driven skills', 'Research opportunities'] },
+            'main-health-safety': { title: 'Health & Safety Program', description: 'Internationally recognized health and safety certifications.', duration: '2-6 Months (certification dependent)', fee: 'Contact for fee structure', modules: ['Workplace Safety Fundamentals', 'Risk Assessment', 'Emergency Response', 'Legal Compliance', 'Safety Management Systems'], benefits: ['Global career opportunities', 'Workplace safety expertise', 'Regulatory compliance', 'Higher earning potential'] },
+            'main-trading': { title: 'Trading & Finance Program', description: 'Master financial markets and trading strategies.', duration: '3 Months', fee: 'Contact for fee structure', modules: ['Market Fundamentals', 'Technical Analysis', 'Risk Management', 'Trading Psychology', 'Live Trading Sessions'], benefits: ['Financial independence', 'Passive income potential', 'Global market access', 'Professional trading skills'] },
+            'web-development': { title: 'Website Development Course', description: 'Learn to build modern, responsive websites from scratch.', duration: '3 Months', fee: 'Contact for fee structure', modules: ['HTML5 & CSS3', 'JavaScript Essentials', 'Responsive Design', 'Bootstrap/Tailwind', 'Deployment & Hosting'], benefits: ['Build professional websites', 'Freelancing skills', 'Portfolio development', 'Job-ready skills'] },
+            'web-app-dev': { title: 'Web Application Development Course', description: 'Master full-stack web application development.', duration: '6 Months', fee: 'Contact for fee structure', modules: ['React.js', 'Node.js & Express', 'MongoDB Database', 'REST APIs', 'Authentication & Security', 'Full Stack Projects'], benefits: ['Full-stack developer skills', 'High salary potential', 'Startup-ready abilities', 'Complex app development'] },
+            'mobile-app-dev': { title: 'Mobile App Development (Flutter)', description: 'Build cross-platform mobile apps with Flutter.', duration: '4 Months', fee: 'Contact for fee structure', modules: ['Dart Programming', 'Flutter Widgets', 'State Management', 'Firebase Integration', 'App Deployment (iOS/Android)'], benefits: ['Cross-platform development', 'Single codebase for both platforms', 'High demand skill', 'App store deployment'] },
+            'python-dev': { title: 'Python Development Course', description: 'Master Python programming for web, data, and automation.', duration: '4 Months', fee: 'Contact for fee structure', modules: ['Python Basics', 'OOP in Python', 'Web Development with Django/Flask', 'Data Analysis with Pandas', 'Automation Scripts'], benefits: ['Versatile programming skill', 'Data science ready', 'Automation expert', 'High paying jobs'] },
+            'digital-marketing': { title: 'Digital Marketing Course', description: 'Complete digital marketing training for modern careers.', duration: '4 Months', fee: 'Contact for fee structure', modules: ['SEO Fundamentals', 'Social Media Marketing', 'Google Ads', 'Email Marketing', 'Content Strategy', 'Analytics'], benefits: ['In-demand marketing skills', 'Remote work opportunities', 'Freelancing potential', 'Business growth abilities'] },
+            'seo-services': { title: 'SEO Services Course', description: 'Master search engine optimization techniques.', duration: '3 Months', fee: 'Contact for fee structure', modules: ['Keyword Research', 'On-Page SEO', 'Off-Page SEO', 'Technical SEO', 'Local SEO', 'SEO Analytics'], benefits: ['High demand skill', 'Freelancing opportunities', 'Website traffic growth', 'Business visibility'] },
+            'graphic-design': { title: 'Graphic Designing Course', description: 'Learn professional graphic design skills.', duration: '3 Months', fee: 'Contact for fee structure', modules: ['Adobe Photoshop', 'Adobe Illustrator', 'Typography', 'Color Theory', 'Logo Design', 'Social Media Graphics'], benefits: ['Creative career path', 'Freelancing ready', 'Portfolio development', 'Agency opportunities'] },
+            'video-editing': { title: 'Video Editing Course', description: 'Professional video editing for content creators.', duration: '3 Months', fee: 'Contact for fee structure', modules: ['Adobe Premiere Pro', 'After Effects Basics', 'Color Grading', 'Audio Editing', 'Motion Graphics', 'Export Settings'], benefits: ['Content creator skills', 'YouTube/TikTok ready', 'Freelancing opportunities', 'Media industry jobs'] },
+            'domestic-electrician': { title: 'Domestic Electrician Course', description: 'Professional training for residential electrical work.', duration: '3 Months', fee: 'Contact for fee structure', modules: ['Electrical Safety', 'Wiring Basics', 'Circuit Breakers', 'Lighting Installation', 'Troubleshooting', 'Building Codes'], benefits: ['Self-employment ready', 'High demand skill', 'Practical hands-on training', 'Certification provided'] },
+            'industrial-electrician': { title: 'Industrial Electrician Course', description: 'Advanced electrical training for industrial settings.', duration: '6 Months', fee: 'Contact for fee structure', modules: ['Industrial Wiring', 'Motor Controls', 'PLC Basics', 'Industrial Safety', 'Power Distribution', 'Maintenance Procedures'], benefits: ['Factory/industry jobs', 'Higher salary potential', 'Specialized skill set', 'Career advancement'] },
+            'solar-technician': { title: 'Solar Technician Course', description: 'Learn solar panel installation and maintenance.', duration: '3 Months', fee: 'Contact for fee structure', modules: ['Solar Energy Basics', 'Panel Installation', 'Inverter Systems', 'Battery Storage', 'System Maintenance', 'Safety Protocols'], benefits: ['Green energy career', 'Growing industry demand', 'Self-employment opportunity', 'Government projects'] },
+            'rac-technician': { title: 'RAC Technician Course', description: 'Refrigeration and Air Conditioning technician training.', duration: '4 Months', fee: 'Contact for fee structure', modules: ['Refrigeration Cycle', 'AC Installation', 'Maintenance & Repair', 'Gas Charging', 'Troubleshooting', 'Safety Standards'], benefits: ['Year-round demand', 'Service business opportunity', 'Residential/commercial work', 'Stable career'] },
+            'cctv-technician': { title: 'CCTV Technician Course', description: 'Learn CCTV installation and security systems.', duration: '2 Months', fee: 'Contact for fee structure', modules: ['Camera Types', 'Cabling & Wiring', 'DVR/NVR Systems', 'Remote Viewing Setup', 'Troubleshooting', 'Security Best Practices'], benefits: ['Growing security industry', 'Quick career start', 'Self-employment ready', 'Commercial projects'] },
+            'artificial-intelligence': { title: 'Artificial Intelligence Course', description: 'Master AI fundamentals and applications.', duration: '6 Months', fee: 'Contact for fee structure', modules: ['AI Basics', 'Python for AI', 'Machine Learning', 'Neural Networks', 'Computer Vision', 'AI Ethics'], benefits: ['Future-proof career', 'High salary potential', 'Research opportunities', 'Innovation leadership'] },
+            'machine-learning': { title: 'Machine Learning Course', description: 'Learn ML algorithms and model building.', duration: '5 Months', fee: 'Contact for fee structure', modules: ['Statistics for ML', 'Supervised Learning', 'Unsupervised Learning', 'Model Evaluation', 'Feature Engineering', 'ML Deployment'], benefits: ['Data science career', 'High paying jobs', 'Problem-solving skills', 'Industry demand'] },
+            'generative-ai': { title: 'Generative AI & Chatbot Development', description: 'Build AI chatbots and generative AI applications.', duration: '4 Months', fee: 'Contact for fee structure', modules: ['LLM Fundamentals', 'OpenAI API', 'Prompt Engineering', 'Chatbot Development', 'RAG Implementation', 'Deployment'], benefits: ['Cutting-edge skills', 'High market demand', 'Freelancing opportunities', 'Innovation leadership'] },
+            'workflow-automation': { title: 'Workflow Automation Course', description: 'Automate business processes with no-code/low-code tools.', duration: '3 Months', fee: 'Contact for fee structure', modules: ['Zapier Basics', 'Make.com', 'API Integration', 'Webhooks', 'Automation Design', 'Business Process Optimization'], benefits: ['Efficiency expert skills', 'Business value creation', 'Remote work opportunities', 'Consulting potential'] },
+            'nebosh': { title: 'NEBOSH Certification', description: 'Globally recognized health and safety qualification.', duration: '2 Months', fee: 'Contact for fee structure', modules: ['Health & Safety Management', 'Risk Assessment', 'Hazard Control', 'Incident Investigation', 'Legal Framework'], benefits: ['International recognition', 'Career advancement', 'Higher salary', 'Global opportunities'] },
+            'osha': { title: 'OSHA Compliance Training', description: 'US occupational safety and health standards.', duration: '1 Month', fee: 'Contact for fee structure', modules: ['OSHA Standards', 'Workplace Hazards', 'Fall Protection', 'Electrical Safety', 'Record Keeping'], benefits: ['US market access', 'Compliance expertise', 'Corporate roles', 'Safety officer positions'] },
+            'iosh': { title: 'IOSH Managing Safely', description: 'Practical safety training for managers.', duration: '1 Month', fee: 'Contact for fee structure', modules: ['Safety Responsibilities', 'Risk Management', 'Incident Prevention', 'Performance Monitoring', 'Safety Culture'], benefits: ['Management readiness', 'Practical skills', 'Career growth', 'Industry recognition'] },
+            'iso-ohsas': { title: 'ISO OHSAS (US)', description: 'International occupational health and safety standard.', duration: '1 Month', fee: 'Contact for fee structure', modules: ['ISO Standards', 'OHSAS Requirements', 'Implementation', 'Audit Preparation', 'Continual Improvement'], benefits: ['International certification', 'Quality management skills', 'Corporate roles', 'Compliance expertise'] },
+            'iso-hse': { title: 'ISO HSE (UK)', description: 'UK health, safety, and environment standard.', duration: '1 Month', fee: 'Contact for fee structure', modules: ['HSE Management Systems', 'Risk Assessment', 'Environmental Protection', 'Legal Compliance', 'Audit Skills'], benefits: ['UK market recognition', 'HSE career path', 'Corporate opportunities', 'Global standards'] },
+            'level-2-safety': { title: 'Level 2 Safety Certifications', description: 'Foundation safety qualifications.', duration: '2 Weeks', fee: 'Contact for fee structure', modules: ['Safety Basics', 'Hazard Identification', 'Emergency Response', 'Safety Communication', 'Personal Responsibility'], benefits: ['Entry-level safety career', 'Quick certification', 'Workplace readiness', 'Further study pathway'] },
+            'forex-trading': { title: 'Forex Trading Course', description: 'Master forex market trading strategies.', duration: '3 Months', fee: 'Contact for fee structure', modules: ['Market Analysis', 'Technical Indicators', 'Risk Management', 'Trading Psychology', 'Live Trading', 'Strategy Development'], benefits: ['Financial independence', 'Passive income potential', 'Global market access', 'Professional trading career'] },
+            'learn-grow': { title: 'Learn Grow Succeed Program', description: 'Personal development and success mindset training.', duration: '2 Months', fee: 'Contact for fee structure', modules: ['Goal Setting', 'Time Management', 'Productivity Systems', 'Communication Skills', 'Leadership Basics', 'Success Habits'], benefits: ['Personal transformation', 'Career acceleration', 'Leadership readiness', 'Life balance'] }
+        };
+
+        const modal = document.getElementById('courseModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const modalWhatsappLink = document.getElementById('modalWhatsappLink');
+        const closeModal = document.querySelector('.close-modal');
+
+        function showCoursePopup(courseKey) {
+            const details = courseDetails[courseKey];
+            if (!details) return;
+            modalTitle.textContent = details.title;
+            let html = `<p>${details.description}</p><p><strong>Duration:</strong> ${details.duration}</p><p><strong>Fee:</strong> ${details.fee}</p><h4><i class="fas fa-book" style="color:#B00515; margin-right:8px;"></i> Course Modules:</h4><ul>`;
+            details.modules.forEach(m => { html += `<li><i class="fas fa-angle-right"></i> ${m}</li>`; });
+            html += `</ul><h4><i class="fas fa-star" style="color:#B00515; margin-right:8px;"></i> Key Benefits:</h4><ul>`;
+            details.benefits.forEach(b => { html += `<li><i class="fas fa-check-circle"></i> ${b}</li>`; });
+            html += `</ul>`;
+            modalBody.innerHTML = html;
+            modalWhatsappLink.href = `https://wa.me/923002457241?text=Hi,%20I%20want%20more%20information%20about%20${encodeURIComponent(details.title)}`;
+            modal.classList.add('active');
+        }
+
+        document.querySelectorAll('.click-me-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const courseKey = this.getAttribute('data-course');
+                if (courseKey) showCoursePopup(courseKey);
+            });
+        });
+
+        document.querySelectorAll('.course-list li').forEach(li => {
+            li.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const courseKey = this.getAttribute('data-course');
+                if (courseKey) showCoursePopup(courseKey);
+            });
+        });
+
+        closeModal.addEventListener('click', () => { modal.classList.remove('active'); });
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
+        let currentFlippedCard = null;
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.classList.contains('click-me-btn') || e.target.closest('.click-me-btn')) return;
+                if (e.target.closest('.course-list li')) return;
+                if (e.target.closest('.quote-btn')) return;
+                if (currentFlippedCard && currentFlippedCard !== this && currentFlippedCard.classList.contains('flipped')) {
+                    currentFlippedCard.classList.remove('flipped');
+                }
+                this.classList.toggle('flipped');
+                currentFlippedCard = this.classList.contains('flipped') ? this : null;
+            });
+        });
+
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('show');
+            const icon = btn.querySelector('i');
+            if (menu.classList.contains('show')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+            else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('show');
+                const icon = btn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+
+</html>

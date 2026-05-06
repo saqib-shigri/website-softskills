@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Contact Us - Soft Skills Engineering</title>
+
+    <!-- Poppins Font Family - Brand Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #010521;
+            overflow-x: hidden;
+            color: #ffffff;
+            line-height: 1.4;
+            width: 100%;
+            position: relative;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #B00515, #101D54, #B00515);
+            z-index: 10000;
+            transition: width 0.1s ease;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #B00515;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #8a0410;
+            transform: translateY(-5px);
+        }
+
+        .sheryians-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            width: 100%;
+            background-color: transparent;
+            border-bottom: 1px solid rgba(176, 5, 21, 0.2);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .nav-scrolled {
+            background-color: rgba(1, 5, 33, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom-color: rgba(176, 5, 21, 0.4);
+        }
+
+        .nav-container {
+            max-width: 100%;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            position: relative;
+        }
+
+        .brand-wrapper {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px;
+            text-decoration: none;
+            white-space: nowrap;
+            margin-left: 0;
+        }
+
+        .nav-logo-img {
+            height: 35px;
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .brand-divider {
+            width: 1px;
+            height: 24px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-title {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .logo-subtitle {
+            color: #B00515;
+            font-weight: 500;
+            font-size: 9px;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+            padding: 6px 24px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(176, 5, 21, 0.3);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 12px;
+            font-weight: 500;
+            color: #fff;
+            overflow: hidden;
+            height: 18px;
+            display: block;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .link-text {
+            display: block;
+            transition: 0.4s transform cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .link-hover {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            color: #B00515;
+            transition: 0.4s transform cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .nav-link:hover .link-text {
+            transform: translateY(-100%);
+        }
+
+        .nav-link:hover .link-hover {
+            transform: translateY(-100%);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: rgba(1, 5, 33, 0.98);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(176, 5, 21, 0.4);
+            border-radius: 12px;
+            padding: 8px 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 8px 20px;
+            font-size: 11px;
+            color: #d1d5db;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(176, 5, 21, 0.15);
+            color: #B00515;
+        }
+
+        .nav-button-cta {
+            background: linear-gradient(135deg, #B00515, #8a0410, #B00515);
+            background-size: 200% 200%;
+            color: white;
+            font-weight: 600;
+            font-size: 12px;
+            padding: 6px 18px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: gradientShift 3s ease infinite;
+            box-shadow: 0 0 8px rgba(176, 5, 21, 0.5);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .nav-button-cta:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(176, 5, 21, 0.5);
+            animation: none;
+            background: linear-gradient(135deg, #8a0410, #B00515);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #010521;
+            z-index: 998;
+            padding-top: 80px;
+            text-align: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu.show {
+            display: flex;
+        }
+
+        @media (max-width: 1100px) {
+            .nav-menu {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .nav-button-cta {
+                display: none !important;
+            }
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            z-index: 1001;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            background-color: #128c7e;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(16, 29, 84, 0.95), rgba(1, 5, 33, 0.98));
+            border: 1px solid rgba(176, 5, 21, 0.3);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .contact-card:hover {
+            border-color: rgba(176, 5, 21, 0.6);
+            box-shadow: 0 15px 25px -10px rgba(176, 5, 21, 0.3);
+        }
+
+        .form-input {
+            background: rgba(1, 5, 33, 0.6);
+            border: 1px solid rgba(176, 5, 21, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            color: white;
+            outline: none;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: #B00515;
+            box-shadow: 0 0 5px rgba(176, 5, 21, 0.3);
+        }
+
+        .submit-btn {
+            background: #B00515;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            border: none;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #8a0410;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-direct-btn {
+            background: #25D366;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            margin-top: 12px;
+            font-size: 0.8rem;
+        }
+
+        .whatsapp-direct-btn:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+        }
+
+        .page-header {
+            padding-top: 100px;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header h1 span {
+            color: #B00515;
+        }
+
+        .page-header p {
+            color: #9ca3af;
+            font-size: 0.8rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .map-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(176, 5, 21, 0.3);
+            height: 350px;
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .info-bar {
+            background: linear-gradient(135deg, rgba(16, 29, 84, 0.95), rgba(1, 5, 33, 0.98));
+            border: 1px solid rgba(176, 5, 21, 0.3);
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .info-item i {
+            color: #B00515;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .info-item p {
+            color: #d1d5db;
+            font-size: 0.7rem;
+        }
+
+        .footer-link-custom {
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.7rem;
+            color: #9ca3af;
+        }
+
+        .footer-link-custom:hover {
+            color: #B00515;
+            transform: translateX(3px);
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(176, 5, 21, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .social-icon:hover {
+            background: #B00515;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+            .contact-card {
+                padding: 1rem;
+            }
+            .map-container {
+                height: 250px;
+            }
+            .info-bar {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scroll-progress"></div>
+    <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+    <a href="https://wa.me/923002457241?text=Hi,%20I'm%20interested%20in%20Soft%20Skills%20Engineering%20training."
+        class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <nav class="sheryians-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-wrapper" id="logoAnim">
+                <img src="static/image/logo.png" alt="Logo" class="nav-logo-img">
+                <div class="brand-divider"></div>
+                <div class="logo-text-group">
+                    <span class="logo-title">Soft Skills</span>
+                    <span class="logo-subtitle">Engineering</span>
+                </div>
+            </a>
+            <ul class="nav-menu" id="menuAnim">
+                <li><a href="index.html" class="nav-link"><span class="link-text">Home</span><span class="link-hover">Home</span></a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link"><span class="link-text">Services</span><span class="link-hover">Services</span></a>
+                    <div class="dropdown-menu"><a href="services.html#soft-skills">Soft Skills & Leadership</a><a href="services.html#corporate">Corporate Training</a><a href="services.html#digital-marketing">Digital Marketing</a><a href="services.html#it-ecommerce">IT & Ecommerce</a><a href="services.html#ai">AI & Emerging Tech</a><a href="services.html#health-safety">Health & Safety</a></div>
+                </li>
+                <li class="nav-item"><a href="projects.html" class="nav-link"><span class="link-text">Projects</span><span class="link-hover">Projects</span></a>
+                    <div class="dropdown-menu"><a href="projects.html#zeetech-web">Zeetech Website</a><a href="projects.html#zeetech-app">Zeetech Mobile App</a><a href="projects.html#zeetech-smm">Zeetech Social Media</a><a href="projects.html#ecommerce">E-Commerce Platform</a><a href="projects.html#training-portal">Corporate Training Portal</a><a href="projects.html#ai-chatbot">AI Chatbot Solution</a></div>
+                </li>
+                <li class="nav-item"><a href="courses.html" class="nav-link"><span class="link-text">Courses</span><span class="link-hover">Courses</span></a>
+                    <div class="dropdown-menu"><a href="courses.html#it-dev">IT & Development</a><a href="courses.html#marketing">Marketing & Creative</a><a href="courses.html#technical">Technical Skills</a><a href="courses.html#ai">AI & Emerging Tech</a><a href="courses.html#health-safety">Health & Safety</a><a href="courses.html#trading">Trading & Finance</a></div>
+                </li>
+                <li class="nav-item"><a href="careers.html" class="nav-link"><span class="link-text">Careers</span><span class="link-hover">Careers</span></a>
+                    <div class="dropdown-menu"><a href="careers.html#trainer">Senior Soft Skills Trainer</a><a href="careers.html#marketing">Digital Marketing Specialist</a><a href="careers.html#developer">Web Developer</a><a href="careers.html#sales">Corporate Sales Executive</a><a href="careers.html#intern">AI/ML Intern</a></div>
+                </li>
+                <li class="nav-item"><a href="contact.html" class="nav-link"><span class="link-text">Contact</span><span class="link-hover">Contact</span></a>
+                    <div class="dropdown-menu"><a href="contact.html#form">Contact Form</a><a href="contact.html#map">Our Location</a><a href="https://wa.me/923002457241">WhatsApp Us</a></div>
+                </li>
+            </ul>
+            <div class="flex items-center gap-3" id="btnAnim">
+                <a href="https://wa.me/923002457241" class="nav-button-cta"><i class="fas fa-rocket"></i> Get Started</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="courses.html">Courses</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/923002457241">Get Started</a>
+    </div>
+
+    <div class="page-header" data-aos="fade-up">
+        <h1>Get In <span>Touch</span></h1>
+        <p>Have questions? We'd love to hear from you. Send us a message and we'll respond ASAP.</p>
+    </div>
+
+    <!-- Contact Form Section -->
+    <section class="py-5 px-4 max-w-3xl mx-auto">
+        <div class="contact-card" data-aos="fade-up">
+            <h2 class="text-xl font-bold text-white mb-4 text-center">Send Us a Message</h2>
+            <form id="contactForm" class="space-y-3">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <input type="text" id="contactName" placeholder="Full Name" class="form-input" required>
+                    <input type="tel" id="contactPhone" placeholder="Phone Number" class="form-input" required>
+                </div>
+                <input type="email" id="contactEmail" placeholder="Email Address" class="form-input" required>
+                <textarea id="contactMessage" rows="3" placeholder="Your Message" class="form-input" required></textarea>
+                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane mr-2"></i> Send Message</button>
+            </form>
+            <div class="mt-4 text-center">
+                <p class="text-gray-400 text-xs mb-2">OR</p>
+                <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20to%20connect%20with%20Soft%20Skills%20Engineering"
+                    target="_blank" class="whatsapp-direct-btn">
+                    <i class="fab fa-whatsapp"></i> Reach Us Direct on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section - Correct Google Maps Embed -->
+    <section class="py-5 px-4 max-w-5xl mx-auto">
+        <div class="map-container" data-aos="fade-up">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12662.175094930399!2d73.06473680457484!3d33.64494628323181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df951bfb2f89e5%3A0xed7ee227b18a2433!2sSoftSkills%20Engineering!5e1!3m2!1sen!2s!4v1778066320471!5m2!1sen!2s" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Info Bar -->
+    <section class="py-2 px-4 max-w-5xl mx-auto">
+        <div class="info-bar">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p class="text-xs">D-110 5th floor, 6th Road, Satellite Town, Rawalpindi</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p class="text-xs">+92 300 2457241</p>
+                </div>
+                <div class="info-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <p class="text-xs">+92 300 2457241</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p class="text-xs">info@softskills.it.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#010521] pt-8 pb-4 border-t border-[#B00515]/20 mt-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <div>
+                    <div class="brand-wrapper flex items-center gap-2 mb-3">
+                        <img src="static/image/logo.png" alt="Logo" class="h-8">
+                    </div>
+                    <p class="text-gray-500 text-[0.65rem] mb-3">Empowering professionals through practical soft skills training and modern IT solutions.</p>
+                    <div class="flex gap-2">
+                        <a href="https://www.facebook.com/softskillsengineering" target="_blank" class="social-icon"><i class="fab fa-facebook-f text-xs"></i></a>
+                        <a href="https://www.instagram.com/softskillsengineering" target="_blank" class="social-icon"><i class="fab fa-instagram text-xs"></i></a>
+                        <a href="https://www.linkedin.com/company/softskillsengineering" target="_blank" class="social-icon"><i class="fab fa-linkedin-in text-xs"></i></a>
+                        <a href="https://www.twitter.com/softskillseng" target="_blank" class="social-icon"><i class="fab fa-twitter text-xs"></i></a>
+                        <a href="https://www.tiktok.com/@soft.skills59?_r=1&_t=ZS-968LETVxgSj" target="_blank" class="social-icon"><i class="fab fa-tiktok text-xs"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="index.html" class="footer-link-custom">Home</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Core Solutions</a></li>
+                        <li><a href="projects.html" class="footer-link-custom">Our Projects</a></li>
+                        <li><a href="courses.html" class="footer-link-custom">Programs</a></li>
+                        <li><a href="careers.html" class="footer-link-custom">Careers</a></li>
+                        <li><a href="contact.html" class="footer-link-custom">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Our Services</h4>
+                    <ul class="space-y-1">
+                        <li><a href="services.html" class="footer-link-custom">Soft Skills Training</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Leadership Development</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Corporate Training</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Digital Marketing</a></li>
+                        <li><a href="services.html" class="footer-link-custom">IT & Ecommerce</a></li>
+                        <li><a href="services.html" class="footer-link-custom">AI & Automation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Contact Info</h4>
+                    <p class="text-gray-500 text-[0.65rem] mb-2"><i class="fas fa-location-dot mr-2 text-[#B00515]"></i> D-110 5th floor, 6th Road, Satellite Town, Rawalpindi</p>
+                    <p class="text-gray-500 text-[0.65rem] mb-2"><i class="fas fa-phone mr-2 text-[#B00515]"></i> +92 300 2457241</p>
+                    <p class="text-gray-500 text-[0.65rem]"><i class="fas fa-envelope mr-2 text-[#B00515]"></i> info@softskills.it.com</p>
+                </div>
+            </div>
+            <div class="border-t border-[#B00515]/20 pt-4 text-center">
+                <p class="text-gray-500 text-[0.6rem]">© 2026 Soft Skills Engineering | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 800 });
+
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) backToTop.classList.add('show');
+            else backToTop.classList.remove('show');
+        });
+
+        document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        window.addEventListener('load', () => {
+            gsap.to(".sheryians-nav", { opacity: 1, y: 0, duration: 0.8 });
+            gsap.from("#logoAnim", { x: -20, opacity: 0, duration: 0.5 });
+            gsap.from("#menuAnim", { y: -10, opacity: 0, duration: 0.5 });
+            gsap.from("#btnAnim", { scale: 0.8, opacity: 0, duration: 0.4 });
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) nav.classList.add('nav-scrolled');
+            else nav.classList.remove('nav-scrolled');
+        });
+
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('show');
+            const icon = btn.querySelector('i');
+            if (menu.classList.contains('show')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+            else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('show');
+                const icon = btn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Contact Form Submit
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const formData = {
+                    name: document.getElementById('contactName')?.value || '',
+                    email: document.getElementById('contactEmail')?.value || '',
+                    phone: document.getElementById('contactPhone')?.value || '',
+                    message: document.getElementById('contactMessage')?.value || ''
+                };
+
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+
+                try {
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        alert('✅ Message sent successfully! We will get back to you soon.');
+                        contactForm.reset();
+                    } else {
+                        alert('❌ Error: ' + (result.error || 'Something went wrong'));
+                    }
+                } catch (error) {
+                    alert('❌ Network error. Please try again.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
