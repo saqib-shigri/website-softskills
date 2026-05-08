@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+        content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <title>Our Services - Soft Skills Engineering</title>
 
-    <!-- Poppins Font Family -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -55,8 +54,8 @@
             position: fixed;
             bottom: 80px;
             right: 20px;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: #B00515;
             border-radius: 50%;
             display: flex;
@@ -67,6 +66,12 @@
             transition: all 0.3s ease;
             opacity: 0;
             visibility: hidden;
+        }
+
+        @media (max-width: 1024px) {
+            .back-to-top {
+                display: none !important;
+            }
         }
 
         .back-to-top.show {
@@ -271,7 +276,6 @@
             transform: translateY(-2px) scale(1.02);
             box-shadow: 0 8px 20px rgba(176, 5, 21, 0.5);
             animation: none;
-            background: linear-gradient(135deg, #8a0410, #B00515);
         }
 
         .mobile-menu-btn {
@@ -319,14 +323,15 @@
             right: 20px;
             background-color: #25d366;
             color: #FFF;
-            border-radius: 50px;
+            border-radius: 50%;
             width: 50px;
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: all 0.4s ease;
             z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         .whatsapp-float:hover {
@@ -334,20 +339,20 @@
             background-color: #128c7e;
         }
 
-        /* Flip Card Styles */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 2rem 1.5rem;
         }
 
         .flip-card {
             background-color: transparent;
             width: 100%;
-            height: 420px;
+            height: auto;
+            min-height: 360px;
             perspective: 1000px;
             cursor: pointer;
         }
@@ -355,7 +360,7 @@
         .flip-card-inner {
             position: relative;
             width: 100%;
-            height: 100%;
+            min-height: 360px;
             text-align: center;
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             transform-style: preserve-3d;
@@ -369,10 +374,10 @@
         .flip-card-back {
             position: absolute;
             width: 100%;
-            height: 100%;
+            min-height: 360px;
             backface-visibility: hidden;
             border-radius: 1rem;
-            padding: 1.5rem;
+            padding: 1.2rem;
             display: flex;
             flex-direction: column;
             background: linear-gradient(135deg, rgba(16, 29, 84, 0.95), rgba(1, 5, 33, 0.98));
@@ -393,32 +398,32 @@
         }
 
         .flip-card-front i {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #B00515;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .flip-card-front h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 0.4rem;
         }
 
         .flip-card-front p {
-            font-size: 0.8rem;
+            font-size: 1.0rem;
             color: #cbd5e1;
             text-align: center;
         }
 
         .flip-card-back h4 {
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #B00515;
             margin-bottom: 0.75rem;
         }
 
         .flip-card-back p {
-            font-size: 0.75rem;
+            font-size: 0.95rem;
             color: #d1d5db;
             line-height: 1.5;
             margin-bottom: 0.75rem;
@@ -430,7 +435,7 @@
         }
 
         .service-list li {
-            font-size: 0.7rem;
+            font-size: 0.87rem;
             color: #9ca3af;
             padding: 0.5rem 0;
             display: flex;
@@ -448,17 +453,17 @@
 
         .service-list li i {
             color: #B00515;
-            font-size: 0.6rem;
+            font-size: 0.8rem;
         }
 
         .click-me-btn {
             background: transparent;
-            border: 1px solid rgba(176, 5, 21, 0.4);
+            border: 2px solid rgba(176, 5, 21, 0.4);
             color: #B00515;
-            padding: 0.4rem 1rem;
+            padding: 0.4rem 2rem;
             border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: 500;
+            font-size: 0.97rem;
+            font-weight: 900;
             margin-top: 1rem;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -474,11 +479,11 @@
             color: white;
             padding: 0.4rem 1rem;
             border-radius: 30px;
-            font-size: 0.7rem;
+            font-size: 0.97rem;
             font-weight: 500;
             text-decoration: none;
             display: inline-block;
-            margin-top: 0.5rem;
+            margin-top: 1.8rem;
             text-align: center;
         }
 
@@ -492,7 +497,7 @@
         }
 
         .page-header h1 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 1rem;
         }
@@ -503,12 +508,36 @@
 
         .page-header p {
             color: #9ca3af;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Popup Modal Styles - Scroll Fixed */
+        @media (min-width: 1440px) {
+            .services-grid { max-width: 1600px; gap: 2rem; padding: 2.5rem 2rem; }
+            .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back { min-height: 420px; }
+            .flip-card-front i { font-size: 3.2rem; }
+            .flip-card-front h3 { font-size: 1.4rem; }
+            .flip-card-front p { font-size: 0.9rem; }
+            .service-list li { font-size: 0.8rem; }
+            .page-header h1 { font-size: 3rem; }
+        }
+
+        @media (min-width: 1920px) {
+            .services-grid { max-width: 1800px; gap: 2.2rem; }
+            .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back { min-height: 460px; }
+            .flip-card-front i { font-size: 3.5rem; }
+            .flip-card-front h3 { font-size: 1.6rem; }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: 1fr; gap: 1.2rem; padding: 1rem; }
+            .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back { min-height: 380px; }
+            .flip-card-front i { font-size: 2rem; }
+            .flip-card-front h3 { font-size: 1rem; }
+            .page-header { padding: 100px 20px 30px; }
+        }
+
         .service-modal {
             display: none;
             position: fixed;
@@ -540,41 +569,14 @@
             animation: modalFadeIn 0.3s ease;
         }
 
-        /* Custom Scrollbar */
-        .modal-content::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .modal-content::-webkit-scrollbar-track {
-            background: #1a1a1a;
-            border-radius: 10px;
-        }
-
-        .modal-content::-webkit-scrollbar-thumb {
-            background: #B00515;
-            border-radius: 10px;
-        }
-
-        .modal-content::-webkit-scrollbar-thumb:hover {
-            background: #8a0410;
-        }
-
-        /* Firefox scroll */
-        .modal-content {
-            scrollbar-width: thin;
-            scrollbar-color: #B00515 #1a1a1a;
-        }
+        .modal-content::-webkit-scrollbar { width: 6px; }
+        .modal-content::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 10px; }
+        .modal-content::-webkit-scrollbar-thumb { background: #B00515; border-radius: 10px; }
+        .modal-content { scrollbar-width: thin; scrollbar-color: #B00515 #1a1a1a; }
 
         @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .close-modal {
@@ -665,27 +667,6 @@
             color: white;
             transform: translateY(-3px);
         }
-
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-                padding: 1rem;
-            }
-
-            .flip-card {
-                height: 480px;
-            }
-
-            .page-header h1 {
-                font-size: 1.8rem;
-            }
-
-            .modal-content {
-                width: 95%;
-                padding: 1.5rem;
-                max-height: 90vh;
-            }
-        }
     </style>
 </head>
 
@@ -708,49 +689,25 @@
                 </div>
             </a>
             <ul class="nav-menu" id="menuAnim">
-                <li><a href="index.html" class="nav-link"><span class="link-text">Home</span><span
-                            class="link-hover">Home</span></a></li>
-                <li class="nav-item"><a href="services.html" class="nav-link"><span
-                            class="link-text">Services</span><span class="link-hover">Services</span></a>
-                    <div class="dropdown-menu"><a href="#soft-skills">Soft Skills & Leadership</a><a
-                            href="#corporate">Corporate Training</a><a href="#digital-marketing">Digital Marketing</a><a
-                            href="#it-ecommerce">IT & Ecommerce</a><a href="#ai">AI & Emerging Tech</a><a
-                            href="#health-safety">Health & Safety</a></div>
+                <li><a href="index.html" class="nav-link"><span class="link-text">Home</span><span class="link-hover">Home</span></a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link"><span class="link-text">Services</span><span class="link-hover">Services</span></a>
+                    <div class="dropdown-menu"><a href="#soft-skills">Soft Skills & Leadership</a><a href="#corporate">Corporate Training</a><a href="#digital-marketing">Digital Marketing</a><a href="#it-ecommerce">IT & Ecommerce</a><a href="#ai">AI & Emerging Tech</a><a href="#health-safety">Health & Safety</a></div>
                 </li>
-                <li class="nav-item"><a href="projects.html" class="nav-link"><span
-                            class="link-text">Projects</span><span class="link-hover">Projects</span></a>
-                    <div class="dropdown-menu"><a href="projects.html#zeetech-web">Zeetech Website</a><a
-                            href="projects.html#zeetech-app">Zeetech Mobile App</a><a
-                            href="projects.html#zeetech-smm">Zeetech Social Media</a><a
-                            href="projects.html#ecommerce">E-Commerce Platform</a><a
-                            href="projects.html#training-portal">Corporate Training Portal</a><a
-                            href="projects.html#ai-chatbot">AI Chatbot Solution</a></div>
+                <li class="nav-item"><a href="projects.html" class="nav-link"><span class="link-text">Projects</span><span class="link-hover">Projects</span></a>
+                    <div class="dropdown-menu"><a href="projects.html#zeetech-web">Zeetech Website</a><a href="projects.html#zeetech-app">Zeetech Mobile App</a><a href="projects.html#zeetech-smm">Zeetech Social Media</a><a href="projects.html#ecommerce">E-Commerce Platform</a><a href="projects.html#training-portal">Corporate Training Portal</a><a href="projects.html#ai-chatbot">AI Chatbot Solution</a></div>
                 </li>
-                <li class="nav-item"><a href="courses.html" class="nav-link"><span class="link-text">Courses</span><span
-                            class="link-hover">Courses</span></a>
-                    <div class="dropdown-menu"><a href="courses.html#it-dev">IT & Development</a><a
-                            href="courses.html#marketing">Marketing & Creative</a><a
-                            href="courses.html#technical">Technical Skills</a><a href="courses.html#ai">AI & Emerging
-                            Tech</a><a href="courses.html#health-safety">Health & Safety</a><a
-                            href="courses.html#trading">Trading & Finance</a></div>
+                <li class="nav-item"><a href="courses.html" class="nav-link"><span class="link-text">Courses</span><span class="link-hover">Courses</span></a>
+                    <div class="dropdown-menu"><a href="courses.html#it-dev">IT & Development</a><a href="courses.html#marketing">Marketing & Creative</a><a href="courses.html#technical">Technical Skills</a><a href="courses.html#ai">AI & Emerging Tech</a><a href="courses.html#health-safety">Health & Safety</a><a href="courses.html#trading">Trading & Finance</a></div>
                 </li>
-                <li class="nav-item"><a href="careers.html" class="nav-link"><span class="link-text">Careers</span><span
-                            class="link-hover">Careers</span></a>
-                    <div class="dropdown-menu"><a href="careers.html#trainer">Senior Soft Skills Trainer</a><a
-                            href="careers.html#marketing">Digital Marketing Specialist</a><a
-                            href="careers.html#developer">Web Developer</a><a href="careers.html#sales">Corporate Sales
-                            Executive</a><a href="careers.html#intern">AI/ML Intern</a></div>
+                <li class="nav-item"><a href="careers.html" class="nav-link"><span class="link-text">Careers</span><span class="link-hover">Careers</span></a>
+                    <div class="dropdown-menu"><a href="careers.html#trainer">Senior Soft Skills Trainer</a><a href="careers.html#marketing">Digital Marketing Specialist</a><a href="careers.html#developer">Web Developer</a><a href="careers.html#sales">Corporate Sales Executive</a><a href="careers.html#intern">AI/ML Intern</a></div>
                 </li>
-                <li class="nav-item"><a href="contact.html" class="nav-link"><span class="link-text">Contact</span><span
-                            class="link-hover">Contact</span></a>
-                    <div class="dropdown-menu"><a href="contact.html#form">Contact Form</a><a
-                            href="contact.html#map">Our Location</a><a href="https://wa.me/923002457241">WhatsApp Us</a>
-                    </div>
+                <li class="nav-item"><a href="contact.html" class="nav-link"><span class="link-text">Contact</span><span class="link-hover">Contact</span></a>
+                    <div class="dropdown-menu"><a href="contact.html#form">Contact Form</a><a href="contact.html#map">Our Location</a><a href="https://wa.me/923002457241">WhatsApp Us</a></div>
                 </li>
             </ul>
             <div class="flex items-center gap-3" id="btnAnim">
-                <a href="https://wa.me/923002457241" class="nav-button-cta"><i class="fas fa-rocket"></i> Get
-                    Started</a>
+                <a href="https://wa.me/923002457241" class="nav-button-cta"><i class="fas fa-rocket"></i> Get Started</a>
                 <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
             </div>
         </div>
@@ -766,14 +723,11 @@
         <a href="https://wa.me/923002457241">Get Started</a>
     </div>
 
-    <!-- Page Header -->
     <div class="page-header" data-aos="fade-up">
         <h1>Our <span>Services</span></h1>
-        <p>We provide end-to-end digital, marketing, and IT solutions designed to help businesses grow, scale, and
-            dominate their market</p>
+        <p>We provide end-to-end digital, marketing, and IT solutions designed to help businesses grow, scale, and dominate their market</p>
     </div>
 
-    <!-- Services Flip Cards Grid -->
     <div class="services-grid" id="services-grid">
         <!-- Service 1 - Soft Skills & Leadership -->
         <div class="flip-card" id="soft-skills" data-aos="flip-left">
@@ -786,16 +740,14 @@
                 </div>
                 <div class="flip-card-back">
                     <h4>Soft Skills & Leadership</h4>
-                    <p>Structured training programs focused on communication, leadership, teamwork, and workplace
-                        performance.</p>
+                    <p>Structured training programs focused on communication, leadership, teamwork, and workplace performance.</p>
                     <ul class="service-list">
-                        <li data-service="Communication Mastery" data-parent="softskills">Communication Mastery</li>
-                        <li data-service="Emotional Intelligence" data-parent="softskills">Emotional Intelligence</li>
-                        <li data-service="Team Building" data-parent="softskills">Team Building & Collaboration</li>
-                        <li data-service="Public Speaking" data-parent="softskills">Public Speaking & Presentation</li>
+                        <li data-service="Communication Mastery">Communication Mastery</li>
+                        <li data-service="Emotional Intelligence">Emotional Intelligence</li>
+                        <li data-service="Team Building">Team Building & Collaboration</li>
+                        <li data-service="Public Speaking">Public Speaking & Presentation</li>
                     </ul>
-                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Soft%20Skills%20%26%20Leadership%20training"
-                        class="quote-btn" target="_blank">Get Quotation →</a>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Soft%20Skills%20%26%20Leadership%20training" class="quote-btn" target="_blank">Get Quotation →</a>
                 </div>
             </div>
         </div>
@@ -813,13 +765,12 @@
                     <h4>Corporate Training</h4>
                     <p>Results-driven corporate training programs tailored for companies and professional teams.</p>
                     <ul class="service-list">
-                        <li data-service="Leadership Development" data-parent="corporate">Leadership Development</li>
-                        <li data-service="Sales & Negotiation" data-parent="corporate">Sales & Negotiation Skills</li>
-                        <li data-service="Conflict Resolution" data-parent="corporate">Conflict Resolution</li>
-                        <li data-service="Performance Management" data-parent="corporate">Performance Management</li>
+                        <li data-service="Leadership Development">Leadership Development</li>
+                        <li data-service="Sales & Negotiation">Sales & Negotiation Skills</li>
+                        <li data-service="Conflict Resolution">Conflict Resolution</li>
+                        <li data-service="Performance Management">Performance Management</li>
                     </ul>
-                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Corporate%20Training"
-                        class="quote-btn" target="_blank">Get Quotation →</a>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Corporate%20Training" class="quote-btn" target="_blank">Get Quotation →</a>
                 </div>
             </div>
         </div>
@@ -835,16 +786,14 @@
                 </div>
                 <div class="flip-card-back">
                     <h4>Digital Marketing</h4>
-                    <p>Complete digital marketing services including paid advertising, SEO, branding, and lead
-                        generation.</p>
+                    <p>Complete digital marketing services including paid advertising, SEO, branding, and lead generation.</p>
                     <ul class="service-list">
-                        <li data-service="SEO Services" data-parent="digital">SEO Services</li>
-                        <li data-service="Social Media Marketing" data-parent="digital">Social Media Marketing</li>
-                        <li data-service="PPC Advertising" data-parent="digital">Pay-Per-Click Advertising</li>
-                        <li data-service="Content Marketing" data-parent="digital">Content Marketing</li>
+                        <li data-service="SEO Services">SEO Services</li>
+                        <li data-service="Social Media Marketing">Social Media Marketing</li>
+                        <li data-service="PPC Advertising">Pay-Per-Click Advertising</li>
+                        <li data-service="Content Marketing">Content Marketing</li>
                     </ul>
-                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Digital%20Marketing%20services"
-                        class="quote-btn" target="_blank">Get Quotation →</a>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Digital%20Marketing%20services" class="quote-btn" target="_blank">Get Quotation →</a>
                 </div>
             </div>
         </div>
@@ -860,16 +809,14 @@
                 </div>
                 <div class="flip-card-back">
                     <h4>IT & Ecommerce</h4>
-                    <p>Professional IT services, software development, and ecommerce solutions to scale modern
-                        businesses.</p>
+                    <p>Professional IT services, software development, and ecommerce solutions to scale modern businesses.</p>
                     <ul class="service-list">
-                        <li data-service="Website Development" data-parent="it">Website Development</li>
-                        <li data-service="Web Application Development" data-parent="it">Web Application Development</li>
-                        <li data-service="Mobile App Development" data-parent="it">Mobile App Development</li>
-                        <li data-service="E-commerce Solutions" data-parent="it">E-commerce Solutions</li>
+                        <li data-service="Website Development">Website Development</li>
+                        <li data-service="Web Application Development">Web Application Development</li>
+                        <li data-service="Mobile App Development">Mobile App Development</li>
+                        <li data-service="E-commerce Solutions">E-commerce Solutions</li>
                     </ul>
-                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20IT%20%26%20Ecommerce%20solutions"
-                        class="quote-btn" target="_blank">Get Quotation →</a>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20IT%20%26%20Ecommerce%20solutions" class="quote-btn" target="_blank">Get Quotation →</a>
                 </div>
             </div>
         </div>
@@ -887,13 +834,12 @@
                     <h4>AI & Emerging Tech</h4>
                     <p>Artificial Intelligence, Machine Learning, and workflow automation solutions.</p>
                     <ul class="service-list">
-                        <li data-service="AI Chatbot Development" data-parent="ai">AI Chatbot Development</li>
-                        <li data-service="Machine Learning Models" data-parent="ai">Machine Learning Models</li>
-                        <li data-service="Workflow Automation" data-parent="ai">Workflow Automation</li>
-                        <li data-service="Generative AI Integration" data-parent="ai">Generative AI Integration</li>
+                        <li data-service="AI Chatbot Development">AI Chatbot Development</li>
+                        <li data-service="Machine Learning Models">Machine Learning Models</li>
+                        <li data-service="Workflow Automation">Workflow Automation</li>
+                        <li data-service="Generative AI Integration">Generative AI Integration</li>
                     </ul>
-                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20AI%20%26%20Emerging%20Tech"
-                        class="quote-btn" target="_blank">Get Quotation →</a>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20AI%20%26%20Emerging%20Tech" class="quote-btn" target="_blank">Get Quotation →</a>
                 </div>
             </div>
         </div>
@@ -911,30 +857,26 @@
                     <h4>Health & Safety</h4>
                     <p>International certifications including NEBOSH, OSHA, IOSH, and ISO standards.</p>
                     <ul class="service-list">
-                        <li data-service="NEBOSH Certification" data-parent="health">NEBOSH Certification</li>
-                        <li data-service="OSHA Compliance" data-parent="health">OSHA Compliance</li>
-                        <li data-service="IOSH Managing Safely" data-parent="health">IOSH Managing Safely</li>
-                        <li data-service="ISO 45001" data-parent="health">ISO 45001 Implementation</li>
+                        <li data-service="NEBOSH Certification">NEBOSH Certification</li>
+                        <li data-service="OSHA Compliance">OSHA Compliance</li>
+                        <li data-service="IOSH Managing Safely">IOSH Managing Safely</li>
+                        <li data-service="ISO 45001">ISO 45001 Implementation</li>
                     </ul>
-                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Health%20%26%20Safety%20certifications"
-                        class="quote-btn" target="_blank">Get Quotation →</a>
+                    <a href="https://wa.me/923002457241?text=Hi,%20I%20want%20quotation%20for%20Health%20%26%20Safety%20certifications" class="quote-btn" target="_blank">Get Quotation →</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Popup Modal -->
     <div id="serviceModal" class="service-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h3 id="modalTitle"></h3>
             <div id="modalBody"></div>
-            <a href="#" id="modalWhatsappLink" class="quote-btn" style="display: inline-block; margin-top: 1rem;"
-                target="_blank">Get Quotation →</a>
+            <a href="#" id="modalWhatsappLink" class="quote-btn" style="display: inline-block; margin-top: 1rem;" target="_blank">Get Quotation →</a>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="bg-[#010521] pt-8 pb-4 border-t border-[#B00515]/20">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
@@ -942,31 +884,14 @@
                     <div class="brand-wrapper flex items-center gap-2 mb-3">
                         <img src="static/image/logo.png" alt="Logo" class="h-8">
                     </div>
-                    <p class="text-gray-500 text-[0.65rem] mb-3">Empowering professionals through practical soft skills
-                        training and modern IT solutions.</p>
+                    <p class="text-gray-500 text-[0.65rem] mb-3">Empowering professionals through practical soft skills training and modern IT solutions.</p>
                     <div class="flex gap-2">
-                        <a href="https://www.facebook.com/softskillsengineering" target="_blank" class="social-icon"><i
-                                class="fab fa-facebook-f text-xs"></i></a>
-                        <a href="https://www.instagram.com/softskillsengineering" target="_blank" class="social-icon"><i
-                                class="fab fa-instagram text-xs"></i></a>
-                        <a href="https://www.linkedin.com/company/softskillsengineering" target="_blank"
-                            class="social-icon"><i class="fab fa-linkedin-in text-xs"></i></a>
-                        <a href="https://www.twitter.com/softskillseng" target="_blank" class="social-icon"><i
-                                class="fab fa-twitter text-xs"></i></a>
-                        <a href="https://www.tiktok.com/@soft.skills59?_r=1&_t=ZS-968LETVxgSj" target="_blank" class="social-icon"><i
-                                class="fab fa-tiktok text-xs"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f text-xs"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram text-xs"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in text-xs"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter text-xs"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok text-xs"></i></a>
                     </div>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4>
-                    <ul class="space-y-1">
-                        <li><a href="index.html" class="footer-link-custom">Home</a></li>
-                        <li><a href="services.html" class="footer-link-custom">Core Solutions</a></li>
-                        <li><a href="projects.html" class="footer-link-custom">Our Projects</a></li>
-                        <li><a href="courses.html" class="footer-link-custom">Programs</a></li>
-                        <li><a href="careers.html" class="footer-link-custom">Careers</a></li>
-                        <li><a href="contact.html" class="footer-link-custom">Contact Us</a></li>
-                    </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold text-sm mb-3">Our Services</h4>
@@ -980,14 +905,22 @@
                     </ul>
                 </div>
                 <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="index.html" class="footer-link-custom">Home</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Core Solutions</a></li>
+                        <li><a href="projects.html" class="footer-link-custom">Our Projects</a></li>
+                        <li><a href="courses.html" class="footer-link-custom">Programs</a></li>
+                        <li><a href="careers.html" class="footer-link-custom">Careers</a></li>
+                        <li><a href="contact.html" class="footer-link-custom">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
                     <h4 class="text-white font-semibold text-sm mb-3">Contact Info</h4>
-                    <p class="text-gray-500 text-[0.65rem] mb-2"><i
-                            class="fas fa-location-dot mr-2 text-[#B00515]"></i> D-110 5th floor, 6th Road, Satellite
-                        Town, Rawalpindi</p>
-                    <p class="text-gray-500 text-[0.65rem] mb-2"><i class="fas fa-phone mr-2 text-[#B00515]"></i> +92
-                        300 2457241</p>
-                    <p class="text-gray-500 text-[0.65rem]"><i class="fas fa-envelope mr-2 text-[#B00515]"></i>
-                        info@softskills.it.com</p>
+                    <p class="text-gray-500 text-[0.65rem] mb-2"><i class="fas fa-location-dot mr-2 text-[#B00515]"></i> D-110 5th floor, 6th Road, Satellite Town, Rawalpindi</p>
+                    <p class="text-gray-500 text-[0.65rem] mb-2"><i class="fas fa-phone mr-2 text-[#B00515]"></i> +92 300 2457241</p>
+                    <p class="text-gray-500 text-[0.65rem]"><i class="fas fa-envelope mr-2 text-[#B00515]"></i> info@softskills.it.com</p>
                 </div>
             </div>
             <div class="border-t border-[#B00515]/20 pt-4 text-center">
@@ -998,59 +931,27 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            once: true,
-            duration: 800
-        });
+        AOS.init({ once: true, duration: 800 });
 
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smooth: true
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
 
         window.addEventListener('scroll', () => {
-            const winScroll = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
+            const scrolled = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100;
             document.querySelector('.scroll-progress').style.width = scrolled + '%';
             const backToTop = document.getElementById('backToTop');
             if (window.scrollY > 300) backToTop.classList.add('show');
             else backToTop.classList.remove('show');
         });
 
-        document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        }));
+        document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
         window.addEventListener('load', () => {
-            gsap.to(".sheryians-nav", {
-                opacity: 1,
-                y: 0,
-                duration: 0.8
-            });
-            gsap.from("#logoAnim", {
-                x: -20,
-                opacity: 0,
-                duration: 0.5
-            });
-            gsap.from("#menuAnim", {
-                y: -10,
-                opacity: 0,
-                duration: 0.5
-            });
-            gsap.from("#btnAnim", {
-                scale: 0.8,
-                opacity: 0,
-                duration: 0.4
-            });
+            gsap.to(".sheryians-nav", { opacity: 1, y: 0, duration: 0.8 });
+            gsap.from("#logoAnim", { x: -20, opacity: 0, duration: 0.5 });
+            gsap.from("#menuAnim", { y: -10, opacity: 0, duration: 0.5 });
+            gsap.from("#btnAnim", { scale: 0.8, opacity: 0, duration: 0.4 });
         });
 
         window.addEventListener('scroll', () => {
@@ -1059,112 +960,46 @@
             else nav.classList.remove('nav-scrolled');
         });
 
-        // Service Details Data (All details remain same, only color scheme updated)
+        // COMPLETE SERVICE DETAILS FOR ALL POPUPS
         const serviceDetails = {
             // Main Services
             'main-softskills': {
                 title: 'Soft Skills & Leadership Training',
-                description: 'Our comprehensive Soft Skills and Leadership program is designed to transform professionals into effective leaders. In today\'s competitive market, technical skills alone aren\'t enough.',
-                features: [
-                    'Communication Mastery: Learn effective verbal and written communication strategies',
-                    'Emotional Intelligence: Develop EQ to handle workplace challenges effectively',
-                    'Team Building: Build high-performing teams with proven methodologies',
-                    'Public Speaking: Master the art of presentations and public speaking',
-                    'Conflict Resolution: Handle workplace conflicts professionally'
-                ],
-                benefits: [
-                    'Increased productivity and team efficiency',
-                    'Better client relationships and stakeholder management',
-                    'Improved decision-making and problem-solving skills',
-                    'Career growth and promotion opportunities'
-                ]
+                description: 'Our comprehensive Soft Skills and Leadership program is designed to transform professionals into effective leaders. In today\'s competitive market, technical skills alone aren\'t enough. We focus on building essential interpersonal skills that drive career growth.',
+                features: ['Communication Mastery: Learn effective verbal and written communication strategies', 'Emotional Intelligence: Develop EQ to handle workplace challenges effectively', 'Team Building: Build high-performing teams with proven methodologies', 'Public Speaking: Master the art of presentations and public speaking', 'Conflict Resolution: Handle workplace conflicts professionally'],
+                benefits: ['Increased productivity and team efficiency', 'Better client relationships and stakeholder management', 'Improved decision-making and problem-solving skills', 'Career growth and promotion opportunities']
             },
             'main-corporate': {
                 title: 'Corporate Training Programs',
-                description: 'Tailored corporate training solutions that align with your business goals. We help organizations build a skilled, motivated, and high-performing workforce.',
-                features: [
-                    'Leadership Development: Comprehensive leadership programs for managers',
-                    'Sales & Negotiation: Boost sales performance with expert techniques',
-                    'Conflict Resolution: Effective conflict management strategies',
-                    'Performance Management: Optimize team performance with proven frameworks',
-                    'Custom workshops based on your organization\'s needs'
-                ],
-                benefits: [
-                    'Improved employee retention and satisfaction',
-                    'Enhanced team collaboration and productivity',
-                    'Better customer service and sales results',
-                    'Reduced workplace conflicts'
-                ]
+                description: 'Tailored corporate training solutions that align with your business goals. We help organizations build a skilled, motivated, and high-performing workforce through customized programs.',
+                features: ['Leadership Development: Comprehensive leadership programs for managers', 'Sales & Negotiation: Boost sales performance with expert techniques', 'Conflict Resolution: Effective conflict management strategies', 'Performance Management: Optimize team performance with proven frameworks', 'Custom workshops based on your organization\'s needs'],
+                benefits: ['Improved employee retention and satisfaction', 'Enhanced team collaboration and productivity', 'Better customer service and sales results', 'Reduced workplace conflicts']
             },
             'main-digital': {
                 title: 'Digital Marketing Services',
-                description: 'Data-driven digital marketing solutions that deliver measurable results. We help businesses grow their online presence and generate quality leads.',
-                features: [
-                    'SEO Services: Rank higher on search engines with ethical SEO strategies',
-                    'Social Media Marketing: Grow your brand on Facebook, Instagram, LinkedIn, TikTok',
-                    'PPC Advertising: Drive targeted traffic with Google Ads and social media ads',
-                    'Content Marketing: Engage audiences with quality content',
-                    'Email Marketing: Build customer relationships through email campaigns'
-                ],
-                benefits: [
-                    'Increased website traffic and brand visibility',
-                    'Higher conversion rates and ROI',
-                    'Better customer engagement and loyalty',
-                    'Data-driven decision making'
-                ]
+                description: 'Data-driven digital marketing solutions that deliver measurable results. We help businesses grow their online presence, generate quality leads, and increase conversions through strategic digital marketing.',
+                features: ['SEO Services: Rank higher on search engines with ethical SEO strategies', 'Social Media Marketing: Grow your brand on Facebook, Instagram, LinkedIn, TikTok', 'PPC Advertising: Drive targeted traffic with Google Ads and social media ads', 'Content Marketing: Engage audiences with quality content', 'Email Marketing: Build customer relationships through email campaigns'],
+                benefits: ['Increased website traffic and brand visibility', 'Higher conversion rates and ROI', 'Better customer engagement and loyalty', 'Data-driven decision making']
             },
             'main-it': {
                 title: 'IT & Ecommerce Solutions',
-                description: 'Modern technology solutions that power business growth. We build scalable, secure, and high-performance digital products.',
-                features: [
-                    'Website Development: Custom websites optimized for SEO and performance',
-                    'Web Application Development: Scalable web apps tailored to your needs',
-                    'Mobile App Development: Cross-platform apps with Flutter and React Native',
-                    'E-commerce Solutions: Complete online stores with payment integration',
-                    'CMS Development: Easy-to-manage content management systems'
-                ],
-                benefits: [
-                    '24/7 online presence and global reach',
-                    'Automated business processes and reduced costs',
-                    'Better customer experience and satisfaction',
-                    'Scalable solutions that grow with your business'
-                ]
+                description: 'Modern technology solutions that power business growth. We build scalable, secure, and high-performance digital products that help businesses thrive in the digital age.',
+                features: ['Website Development: Custom websites optimized for SEO and performance', 'Web Application Development: Scalable web apps tailored to your needs', 'Mobile App Development: Cross-platform apps with Flutter and React Native', 'E-commerce Solutions: Complete online stores with payment integration', 'CMS Development: Easy-to-manage content management systems'],
+                benefits: ['24/7 online presence and global reach', 'Automated business processes and reduced costs', 'Better customer experience and satisfaction', 'Scalable solutions that grow with your business']
             },
             'main-ai': {
                 title: 'AI & Emerging Technologies',
-                description: 'Leverage cutting-edge AI and automation to stay ahead of the competition. We help businesses integrate intelligent solutions.',
-                features: [
-                    'AI Chatbot Development: 24/7 customer support with smart chatbots',
-                    'Machine Learning Models: Custom ML models for predictions and analytics',
-                    'Workflow Automation: Automate repetitive tasks and save time',
-                    'Generative AI Integration: Integrate ChatGPT and other AI tools',
-                    'Data Analytics: Extract insights from your business data'
-                ],
-                benefits: [
-                    'Reduced operational costs and increased efficiency',
-                    'Better customer service with 24/7 availability',
-                    'Data-driven insights for better decisions',
-                    'Competitive advantage in your industry'
-                ]
+                description: 'Leverage cutting-edge AI and automation to stay ahead of the competition. We help businesses integrate intelligent solutions that drive efficiency and innovation.',
+                features: ['AI Chatbot Development: 24/7 customer support with smart chatbots', 'Machine Learning Models: Custom ML models for predictions and analytics', 'Workflow Automation: Automate repetitive tasks and save time', 'Generative AI Integration: Integrate ChatGPT and other AI tools', 'Data Analytics: Extract insights from your business data'],
+                benefits: ['Reduced operational costs and increased efficiency', 'Better customer service with 24/7 availability', 'Data-driven insights for better decisions', 'Competitive advantage in your industry']
             },
             'main-health': {
                 title: 'Health & Safety Certifications',
-                description: 'Internationally recognized health and safety certifications that ensure workplace compliance and employee safety.',
-                features: [
-                    'NEBOSH Certification: Globally recognized safety qualification',
-                    'OSHA Compliance: OSHA standards training for workplace safety',
-                    'IOSH Managing Safely: Practical safety training for managers',
-                    'ISO 45001 Implementation: Occupational health and safety management',
-                    'Risk Assessment: Identify and mitigate workplace hazards'
-                ],
-                benefits: [
-                    'Legal compliance and reduced liability',
-                    'Fewer workplace accidents and injuries',
-                    'Improved employee morale and productivity',
-                    'Enhanced company reputation'
-                ]
+                description: 'Internationally recognized health and safety certifications that ensure workplace compliance and employee safety. Our programs are designed to meet global standards.',
+                features: ['NEBOSH Certification: Globally recognized safety qualification', 'OSHA Compliance: OSHA standards training for workplace safety', 'IOSH Managing Safely: Practical safety training for managers', 'ISO 45001 Implementation: Occupational health and safety management', 'Risk Assessment: Identify and mitigate workplace hazards'],
+                benefits: ['Legal compliance and reduced liability', 'Fewer workplace accidents and injuries', 'Improved employee morale and productivity', 'Enhanced company reputation']
             },
-            // Sub Services (all remain same)
+            // Soft Skills Sub Services
             'Communication Mastery': {
                 title: 'Communication Mastery Training',
                 description: 'Master the art of effective communication in the workplace. This program covers verbal, non-verbal, and written communication skills essential for professional success.',
@@ -1189,6 +1024,7 @@
                 features: ['Overcoming stage fright and anxiety', 'Structuring compelling presentations', 'Body language and vocal techniques', 'Visual aids and slide design', 'Handling Q&A sessions professionally'],
                 benefits: ['Confidence in meetings and conferences', 'Ability to persuade and influence', 'Better career opportunities', 'Professional recognition']
             },
+            // Corporate Sub Services
             'Leadership Development': {
                 title: 'Leadership Development Program',
                 description: 'Comprehensive leadership training for current and aspiring leaders. Learn to inspire, motivate, and guide teams toward success.',
@@ -1213,6 +1049,7 @@
                 features: ['Goal setting (OKRs and KPIs)', 'Regular feedback and coaching', 'Performance review best practices', 'Reward and recognition systems', 'Performance improvement plans'],
                 benefits: ['Higher team productivity', 'Employee growth and development', 'Alignment with organizational goals', 'Better talent retention']
             },
+            // Digital Marketing Sub Services
             'SEO Services': {
                 title: 'Search Engine Optimization (SEO)',
                 description: 'Rank higher on Google and drive organic traffic with our ethical, results-driven SEO strategies.',
@@ -1237,6 +1074,7 @@
                 features: ['Content strategy development', 'Blog post and article writing', 'Video content creation', 'Infographic design', 'Content distribution and promotion'],
                 benefits: ['Improved brand authority', 'Better customer engagement', 'Increased organic traffic', 'Lead generation']
             },
+            // IT Sub Services
             'Website Development': {
                 title: 'Website Development Services',
                 description: 'Custom website development that combines stunning design with performance optimization for better search rankings.',
@@ -1261,6 +1099,7 @@
                 features: ['Platform selection (Shopify, WooCommerce, custom)', 'Product catalog management', 'Payment gateway integration', 'Shopping cart and checkout optimization', 'Order and inventory management'],
                 benefits: ['24/7 online selling', 'Global customer reach', 'Reduced operational costs', 'Sales analytics and insights']
             },
+            // AI Sub Services
             'AI Chatbot Development': {
                 title: 'AI Chatbot Development',
                 description: 'Intelligent chatbots powered by AI that provide 24/7 customer support and automate conversations.',
@@ -1285,6 +1124,7 @@
                 features: ['ChatGPT API integration', 'Content generation automation', 'Customer service automation', 'Personalized recommendations', 'AI-powered analytics'],
                 benefits: ['Enhanced customer experiences', 'Content creation efficiency', '24/7 automated support', 'Innovation and competitive edge']
             },
+            // Health & Safety Sub Services
             'NEBOSH Certification': {
                 title: 'NEBOSH Certification Training',
                 description: 'Globally recognized health and safety qualification that opens doors to international career opportunities.',
@@ -1311,7 +1151,6 @@
             }
         };
 
-        // Popup functionality
         const modal = document.getElementById('serviceModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.getElementById('modalBody');
@@ -1320,93 +1159,51 @@
 
         function showServicePopup(serviceKey) {
             const details = serviceDetails[serviceKey];
-            if (!details) return;
-
+            if (!details) {
+                console.log('Service not found:', serviceKey);
+                return;
+            }
             modalTitle.textContent = details.title;
-            
-            let html = `<p>${details.description}</p>`;
-            
-            html += `<h4><i class="fas fa-check-circle" style="color:#B00515; margin-right:8px;"></i> What We Offer:</h4>`;
-            html += `<ul>`;
-            details.features.forEach(f => {
-                html += `<li><i class="fas fa-angle-right"></i> ${f}</li>`;
-            });
+            let html = `<p>${details.description}</p><h4><i class="fas fa-check-circle" style="color:#B00515; margin-right:8px;"></i> What We Offer:</h4><ul>`;
+            details.features.forEach(f => { html += `<li><i class="fas fa-angle-right"></i> ${f}</li>`; });
+            html += `</ul><h4><i class="fas fa-star" style="color:#B00515; margin-right:8px;"></i> Key Benefits:</h4><ul>`;
+            details.benefits.forEach(b => { html += `<li><i class="fas fa-check-circle"></i> ${b}</li>`; });
             html += `</ul>`;
-            
-            html += `<h4><i class="fas fa-star" style="color:#B00515; margin-right:8px;"></i> Key Benefits:</h4>`;
-            html += `<ul>`;
-            details.benefits.forEach(b => {
-                html += `<li><i class="fas fa-check-circle"></i> ${b}</li>`;
-            });
-            html += `</ul>`;
-            
             modalBody.innerHTML = html;
-            
-            // Set WhatsApp link
             modalWhatsappLink.href = `https://wa.me/923002457241?text=Hi,%20I%20want%20more%20information%20about%20${encodeURIComponent(details.title)}`;
-            
             modal.classList.add('active');
         }
 
-        // Attach click handlers to all "Get More" buttons
         document.querySelectorAll('.click-me-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 const serviceKey = this.getAttribute('data-service');
-                if (serviceKey) {
-                    showServicePopup(serviceKey);
-                }
+                if (serviceKey) showServicePopup(serviceKey);
             });
         });
 
-        // Attach click handlers to service list items
         document.querySelectorAll('.service-list li').forEach(li => {
             li.addEventListener('click', function(e) {
                 e.stopPropagation();
                 const serviceKey = this.getAttribute('data-service');
-                if (serviceKey) {
-                    showServicePopup(serviceKey);
-                }
+                if (serviceKey) showServicePopup(serviceKey);
             });
         });
 
-        closeModal.addEventListener('click', () => {
-            modal.classList.remove('active');
-        });
+        closeModal.addEventListener('click', () => { modal.classList.remove('active'); });
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-            }
-        });
-
-        // Flip card functionality - only one flip at a time
         let currentFlippedCard = null;
-        
         document.querySelectorAll('.flip-card').forEach(card => {
             card.addEventListener('click', function(e) {
-                // If click is on "Get More" button or service list item, don't flip
-                if (e.target.classList.contains('click-me-btn') || e.target.closest('.click-me-btn')) {
-                    return;
-                }
-                if (e.target.closest('.service-list li')) {
-                    return;
-                }
-                if (e.target.closest('.quote-btn')) {
-                    return;
-                }
-                
-                // Close other flipped card
+                if (e.target.classList.contains('click-me-btn') || e.target.closest('.click-me-btn')) return;
+                if (e.target.closest('.service-list li')) return;
+                if (e.target.closest('.quote-btn')) return;
                 if (currentFlippedCard && currentFlippedCard !== this && currentFlippedCard.classList.contains('flipped')) {
                     currentFlippedCard.classList.remove('flipped');
                 }
-                
                 this.classList.toggle('flipped');
-                if (this.classList.contains('flipped')) {
-                    currentFlippedCard = this;
-                } else {
-                    currentFlippedCard = null;
-                }
+                currentFlippedCard = this.classList.contains('flipped') ? this : null;
             });
         });
 
