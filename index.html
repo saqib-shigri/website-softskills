@@ -374,25 +374,26 @@
 
         .typewriter-label {
             font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            font-weight: 800;
+            font-weight: 600;
             color: #ffffff;
         }
 
         /* FIXED: wider container for long words */
         .typewriter-text-wrapper {
-            display: inline-block;
             position: relative;
             height: 20px;
             overflow: visible;
             vertical-align: middle;
             min-width: 450px;
             width: auto;
+         
         }
 
         .typewriter-slider {
             position: relative;
             width: 100%;
             height: 100%;
+            
         }
 
         .typewriter-slide {
@@ -412,6 +413,7 @@
             opacity: 0;
             transform: translateY(100%);
             line-height: 1.3;
+           
         }
 
         .typewriter-slide.active {
@@ -423,6 +425,7 @@
         @media (max-width: 768px) {
             .typewriter-text-wrapper {
                 min-width: 280px;
+                text-align: center;
             }
 
             .typewriter-slide {
@@ -431,6 +434,30 @@
                 word-break: keep-all;
                 line-height: 1.2;
             }
+
+
+ .typewriter-slide {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #B00515, #ff4d4d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+            text-align: start;
+            transition: transform 1.0s ease-out, opacity 1.3s ease-out;
+            opacity: 0;
+            transform: translateY(100%);
+            line-height: 1.3;
+            display: flex;
+            justify-content: center;
+        }
+
+
 
             .typewriter-container {
                 gap: 6px;
@@ -606,7 +633,7 @@
             width: 100%;
             min-height: 290px;
             text-align: center;
-            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 0.7s cubic-bezier(0.23, 01, 0.32, 1);
             transform-style: preserve-3d;
         }
 
@@ -627,11 +654,11 @@
             align-items: center;
             background: linear-gradient(135deg, rgba(16, 29, 84, 0.95), rgba(1, 5, 33, 0.98));
             border: 1px solid rgba(176, 5, 21, 0.3);
-            padding: 1rem 0 1rem 0; 
+            padding: 1rem 0 1rem 0;
         }
 
 
-         .flip-card-back {
+        .flip-card-back {
             position: absolute;
             width: 100%;
             min-height: 290px;
@@ -644,7 +671,7 @@
             align-items: start;
             background: linear-gradient(135deg, rgba(16, 29, 84, 0.95), rgba(1, 5, 33, 0.98));
             border: 1px solid rgba(176, 5, 21, 0.3);
-           
+
         }
 
         .flip-card-back {
@@ -698,34 +725,34 @@
         }
 
         .flip-card-back ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    text-align: left;
-    padding-left: 1rem;
-}
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            text-align: left;
+            padding-left: 1rem;
+        }
 
-.flip-card-back li {
-    font-size: 0.85rem;
-    color: #9ca3af;
-    padding: 0.4rem 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding-left: 0;
-    margin-left: 0;
-}
+        .flip-card-back li {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding-left: 0;
+            margin-left: 0;
+        }
 
-.flip-card-back li i {
-    color: #B00515;
-    font-size: 0.75rem;
-    width: 18px;
-    flex-shrink: 0;
-    margin-top: 0.15rem;
-}
+        .flip-card-back li i {
+            color: #B00515;
+            font-size: 0.75rem;
+            width: 18px;
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
 
         @media (max-width: 768px) {
             .whyus-grid {
@@ -1104,7 +1131,7 @@
                 <p class="section-subtitle">Why Soft Skills Engineering?</p>
             </div>
             <div class="whyus-grid">
-                <div class="flip-card" data-aos="flip-left">
+                <div class="flip-card" data-aos="fade-up">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class="whyus-icon"><i class="fas fa-chalkboard-user"></i></div>
@@ -1123,7 +1150,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flip-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="flip-card" data-aos="fade-up" >
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class="whyus-icon"><i class="fas fa-bullseye"></i></div>
@@ -1142,7 +1169,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flip-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="flip-card" data-aos="fade-up" >
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class="whyus-icon"><i class="fas fa-puzzle-piece"></i></div>
@@ -1161,7 +1188,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flip-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="flip-card" data-aos="fade-up" >
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class="whyus-icon"><i class="fas fa-chart-line"></i></div>
@@ -1319,7 +1346,7 @@
                         <li><a href="contact.html" class="footer-link-custom">Contact Us</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-white font-semibold text-lg mb-4">Contact Info</h4>
                     <p class="text-gray-500 text-sm mb-2"><i class="fas fa-location-dot mr-2 text-[#B00515]"></i> D-110
