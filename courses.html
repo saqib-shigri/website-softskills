@@ -507,107 +507,7 @@
             margin: 0 auto;
         }
 
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, #101D54, #010521);
-            margin-top: 2rem;
-        }
-
-        .testimonials-heading {
-            text-align: center;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .testimonials-heading span {
-            color: #B00515;
-        }
-
-        .testimonials-subtitle {
-            text-align: center;
-            color: #9ca3af;
-            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background: rgba(16, 29, 84, 0.5);
-            border: 1px solid rgba(176, 5, 21, 0.2);
-            border-radius: 0.8rem;
-            padding: 1.2rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(176, 5, 21, 0.5);
-            background: rgba(176, 5, 21, 0.1);
-        }
-
-        .testimonial-stars {
-            color: #fbbf24;
-            font-size: 0.8rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .testimonial-text {
-            font-size: 0.8rem;
-            color: #cbd5e1;
-            line-height: 1.5;
-            margin-bottom: 0.8rem;
-            font-style: italic;
-        }
-
-        .testimonial-name {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #B00515;
-            margin-bottom: 0.2rem;
-        }
-
-        .testimonial-title {
-            font-size: 0.7rem;
-            color: #9ca3af;
-        }
-
-        @media (min-width: 1440px) {
-            .courses-grid {
-                max-width: 1600px;
-                gap: 1.5rem;
-            }
-            .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
-                min-height: 340px;
-            }
-            .flip-card-front i { font-size: 2.8rem; }
-            .flip-card-front h3 { font-size: 1.3rem; }
-        }
-
-        @media (max-width: 768px) {
-            .courses-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 1rem;
-            }
-            .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
-                min-height: 340px;
-            }
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
+       
 
         /* Popup Modal Styles */
         .course-modal {
@@ -952,50 +852,7 @@
         </div>
     </div>
 
-    <!-- TESTIMONIALS SECTION -->
-    <div class="testimonials-section">
-        <div class="testimonials-heading">Real <span>Impact</span></div>
-        <div class="testimonials-subtitle">What our students say about us</div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"The communication course completely transformed how I present to clients. Got promoted within 3 months!"</p>
-                <div class="testimonial-name">Ahmed Raza</div>
-                <div class="testimonial-title">Senior Analyst</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Leadership training gave me practical tools. My team immediately increased their productivity by 40%!"</p>
-                <div class="testimonial-name">Fatima Khan</div>
-                <div class="testimonial-title">Project Manager</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"From nervous in meetings to leading weekly syncs. Best investment in my career."</p>
-                <div class="testimonial-name">Bilal Ahmed</div>
-                <div class="testimonial-title">Tech Lead</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"The emotional intelligence workshop was life-changing. Now I handle conflicts better."</p>
-                <div class="testimonial-name">Sana Malik</div>
-                <div class="testimonial-title">HR Specialist</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"The teamwork modules transformed how I work with colleagues. Highly recommended!"</p>
-                <div class="testimonial-name">Omar Farooq</div>
-                <div class="testimonial-title">Team Lead</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"The training gave me the confidence to handle high-pressure situations. Exceptional program!"</p>
-                <div class="testimonial-name">Zainab Ali</div>
-                <div class="testimonial-title">Operations Manager</div>
-            </div>
-        </div>
-    </div>
-
+    
     <!-- Popup Modal -->
     <div id="courseModal" class="course-modal">
         <div class="modal-content">
@@ -1036,9 +893,9 @@
                     <h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4>
                     <ul class="space-y-1">
                         <li><a href="index.html" class="footer-link-custom">Home</a></li>
-                        <li><a href="services.html" class="footer-link-custom">Core Solutions</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Services</a></li>
                         <li><a href="projects.html" class="footer-link-custom">Our Projects</a></li>
-                        <li><a href="courses.html" class="footer-link-custom">Programs</a></li>
+                        <li><a href="courses.html" class="footer-link-custom">Courses</a></li>
                         <li><a href="careers.html" class="footer-link-custom">Careers</a></li>
                         <li><a href="contact.html" class="footer-link-custom">Contact Us</a></li>
                     </ul>
