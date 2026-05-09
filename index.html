@@ -386,14 +386,14 @@
             vertical-align: middle;
             min-width: 450px;
             width: auto;
-         
+
         }
 
         .typewriter-slider {
             position: relative;
             width: 100%;
             height: 100%;
-            
+
         }
 
         .typewriter-slide {
@@ -413,7 +413,7 @@
             opacity: 0;
             transform: translateY(100%);
             line-height: 1.3;
-           
+
         }
 
         .typewriter-slide.active {
@@ -436,26 +436,26 @@
             }
 
 
- .typewriter-slide {
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
-            font-size: clamp(1rem, 2.5vw, 1.4rem);
-            font-weight: 700;
-            background: linear-gradient(135deg, #B00515, #ff4d4d);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            white-space: nowrap;
-            text-align: start;
-            transition: transform 1.0s ease-out, opacity 1.3s ease-out;
-            opacity: 0;
-            transform: translateY(100%);
-            line-height: 1.3;
-            display: flex;
-            justify-content: center;
-        }
+            .typewriter-slide {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                font-size: clamp(1rem, 2.5vw, 1.4rem);
+                font-weight: 700;
+                background: linear-gradient(135deg, #B00515, #ff4d4d);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                white-space: nowrap;
+                text-align: start;
+                transition: transform 1.0s ease-out, opacity 1.3s ease-out;
+                opacity: 0;
+                transform: translateY(100%);
+                line-height: 1.3;
+                display: flex;
+                justify-content: center;
+            }
 
 
 
@@ -815,11 +815,12 @@
             overflow: hidden;
         }
 
+
         .marquee-row-left-to-right,
         .marquee-row-right-to-left {
             display: flex;
             width: fit-content;
-            animation-duration: 40s;
+            animation-duration: 15s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
         }
@@ -830,6 +831,11 @@
 
         .marquee-row-right-to-left {
             animation-name: marqueeRightToLeft;
+        }
+
+        .marquee-row-left-to-right:hover,
+        .marquee-row-right-to-left:hover {
+            animation-play-state: paused;
         }
 
         @keyframes marqueeLeftToRight {
@@ -865,13 +871,14 @@
         }
 
         .review-card:hover {
-            transform: translateY(-8px);
-            background: rgba(16, 29, 84, 0.8);
+            transform: translateY(-1px);
+            background: rgba(64, 75, 122, 0.8);
         }
 
         @media (max-width: 768px) {
             .review-card {
-                width: 290px;
+                width: 310px;
+                padding: clamp(.5rem, 0.8vw, 0.6rem);
             }
         }
 
@@ -1150,7 +1157,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flip-card" data-aos="fade-up" >
+                <div class="flip-card" data-aos="fade-up">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class="whyus-icon"><i class="fas fa-bullseye"></i></div>
@@ -1169,7 +1176,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flip-card" data-aos="fade-up" >
+                <div class="flip-card" data-aos="fade-up">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class="whyus-icon"><i class="fas fa-puzzle-piece"></i></div>
@@ -1188,7 +1195,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flip-card" data-aos="fade-up" >
+                <div class="flip-card" data-aos="fade-up">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class="whyus-icon"><i class="fas fa-chart-line"></i></div>
@@ -1318,11 +1325,11 @@
                             class="h-10"></div>
                     <p class="text-gray-500 text-sm mb-4">Empowering professionals through practical soft skills
                         training and modern IT solutions.</p>
-                    <div class="flex gap-3"><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a><a
-                            href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#"
-                            class="social-icon"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-icon"><i
-                                class="fab fa-twitter"></i></a><a href="#" class="social-icon"><i
-                                class="fab fa-tiktok"></i></a></div>
+                    <div class="flex gap-3">
+                        <a href="https://www.facebook.com/share/16r97iLUhc/?mibextid=wwXIfr" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/softskillsengineering?igsh=MWQ0Z2ptbG9ramZ3aw%3D%3D&utm_source=qr" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#"class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.tiktok.com/@soft.skills59?_r=1&_t=ZS-96D1X3JijXb" class="social-icon"><i class="fab fa-tiktok"></i></a></div>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold text-lg mb-4">Our Services</h4>
