@@ -550,7 +550,7 @@
             font-size: clamp(0.8rem, 1.6vw, 1rem);
             font-weight: 600;
             color: #fff;
-            transition: all 0.4s ease;
+            transition: all 0.2s ease;
             display: inline-block;
             text-decoration: none;
         }
@@ -761,15 +761,17 @@
         .marquee-container {
             width: 100%;
             overflow: hidden;
+            
         }
 
         .marquee-row-left-to-right,
         .marquee-row-right-to-left {
             display: flex;
             width: fit-content;
-            animation-duration: 15s;
+            animation-duration: 5s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
+            
         }
 
         .marquee-row-left-to-right {
@@ -803,7 +805,7 @@
             background: rgba(16, 29, 84, 0.5);
             border-radius: 1rem;
             border-left: 3px solid #B00515;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             cursor: pointer;
         }
 
@@ -1345,7 +1347,7 @@
         AOS.init({ once: true, duration: 600 });
         
         // ========== GOOGLE SHEETS API ==========
-        const SHEET_BEST_API = "https://api.sheetbest.com/sheets/a26d79a0-703e-4bba-aa7e-7cca7aa1f991";
+        const SHEET_BEST_API = "https://api.sheetbest.com/sheets/ed70f95f-c19d-458f-be70-554c42637482";
         
         // Function to create review card HTML
         function createReviewCardHTML(name, title, rating, feedback) {
