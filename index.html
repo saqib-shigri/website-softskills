@@ -6,7 +6,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <title>Soft Skills Engineering | Corporate Training & Professional Development</title>
-<link rel="shortcut icon" href="/static/image/logo.png" type="image/png">
+    <link rel="shortcut icon" href="/static/image/logo.png" type="image/png">
 
     <meta name="description"
         content="Expert-led soft skills, leadership, digital marketing, IT, and AI training. Customized corporate programs with proven results. Boost team productivity today.">
@@ -265,9 +265,17 @@
         }
 
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .nav-button-cta:hover {
@@ -305,9 +313,11 @@
             .nav-menu {
                 display: none;
             }
+
             .mobile-menu-btn {
                 display: block;
             }
+
             .nav-button-cta {
                 display: none !important;
             }
@@ -412,6 +422,7 @@
                 min-width: 280px;
                 text-align: center;
             }
+
             .typewriter-slide {
                 font-size: 1rem;
                 white-space: normal;
@@ -420,9 +431,11 @@
                 display: flex;
                 justify-content: center;
             }
+
             .typewriter-container {
                 gap: 6px;
             }
+
             .typewriter-label {
                 font-size: 0.9rem;
             }
@@ -562,8 +575,13 @@
         }
 
         @keyframes scrollRightToLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .whyus-grid {
@@ -709,6 +727,7 @@
                 max-width: 500px;
                 margin: 0 auto;
             }
+
             .flip-card,
             .flip-card-inner,
             .flip-card-front,
@@ -761,40 +780,47 @@
         .marquee-container {
             width: 100%;
             overflow: hidden;
-            
+            position: relative;
         }
 
         .marquee-row-left-to-right,
         .marquee-row-right-to-left {
             display: flex;
             width: fit-content;
-            animation-duration: 5s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-            
+            will-change: transform;
         }
 
         .marquee-row-left-to-right {
-            animation-name: marqueeLeftToRight;
+            animation: scrollLeftToRight 20s linear infinite;
         }
 
         .marquee-row-right-to-left {
-            animation-name: marqueeRightToLeft;
+            animation: scrollRightToLeft 20s linear infinite;
+        }
+
+        @keyframes scrollLeftToRight {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        @keyframes scrollRightToLeft {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .marquee-row-left-to-right:hover,
         .marquee-row-right-to-left:hover {
             animation-play-state: paused;
-        }
-
-        @keyframes marqueeLeftToRight {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
-
-        @keyframes marqueeRightToLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
         }
 
         .review-card {
@@ -958,8 +984,8 @@
         }
 
         .rating-stars label:hover,
-        .rating-stars label:hover ~ label,
-        .rating-stars input:checked ~ label {
+        .rating-stars label:hover~label,
+        .rating-stars input:checked~label {
             color: #fbbf24;
         }
 
@@ -1106,14 +1132,478 @@
         .full-width-section {
             width: 100%;
         }
-        
-        /* Styles for dynamic review cards */
+
         .testimonial-grid-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 1rem;
             margin: 2rem 0;
+        }
+
+
+
+        /* ========== RESPONSIVE BREAKPOINTS ========== */
+
+        /* Mobile Portrait (up to 480px) */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-description {
+                font-size: 0.8rem;
+                padding: 0 1rem;
+            }
+
+            .typewriter-text-wrapper {
+                min-width: 200px;
+            }
+
+            .typewriter-slide {
+                font-size: 0.8rem;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .typewriter-label {
+                font-size: 0.8rem;
+            }
+
+            .btn-primary,
+            .btn-outline-custom {
+                padding: 8px 20px;
+                font-size: 0.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .whyus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .industries-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .review-card {
+                width: 260px;
+                margin: 0 8px;
+                padding: 0.8rem;
+            }
+
+            .review-card p {
+                font-size: 0.75rem;
+            }
+
+            .review-card h4 {
+                font-size: 0.9rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .brand-wrapper {
+                justify-content: center;
+            }
+
+            .inner-content {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.8rem;
+            }
+
+            .feedback-btn {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
+
+            .service-name-box {
+                padding: 5px 12px;
+                font-size: 0.7rem;
+                margin: 0 3px;
+            }
+
+            .services-track {
+                animation: scrollRightToLeft 15s linear infinite;
+            }
+
+            .marquee-row-left-to-right,
+            .marquee-row-right-to-left {
+                animation-duration: 12s;
+            }
+
+            .flip-card-front h3 {
+                font-size: 1rem;
+            }
+
+            .flip-card-front p {
+                font-size: 0.75rem;
+            }
+
+            .industry-card {
+                padding: 0.8rem;
+            }
+
+            .industry-card h4 {
+                font-size: 0.85rem;
+            }
+
+            .industry-icon {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Mobile Landscape (481px - 768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+            }
+
+            .typewriter-text-wrapper {
+                min-width: 300px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .whyus-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .industries-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .review-card {
+                width: 280px;
+                margin: 0 10px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                text-align: center;
+            }
+
+            .inner-content {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .service-name-box {
+                padding: 6px 14px;
+                font-size: 0.75rem;
+            }
+
+            .marquee-row-left-to-right,
+            .marquee-row-right-to-left {
+                animation-duration: 15s;
+            }
+        }
+
+        /* Tablet Portrait (769px - 900px) */
+        @media (min-width: 769px) and (max-width: 900px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+            }
+
+            .whyus-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .industries-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .review-card {
+                width: 300px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .inner-content {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        /* Tablet Landscape (901px - 1024px) */
+        @media (min-width: 901px) and (max-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+            }
+
+            .whyus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .industries-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .review-card {
+                width: 320px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Laptop (1025px - 1366px) */
+        @media (min-width: 1025px) and (max-width: 1366px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .inner-content {
+                max-width: 1400px;
+            }
+
+            .review-card {
+                width: 340px;
+            }
+
+            .stats-grid {
+                gap: 2rem;
+            }
+        }
+
+        /* Desktop (1367px - 1600px) */
+        @media (min-width: 1367px) and (max-width: 1600px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .inner-content {
+                max-width: 1500px;
+            }
+
+            .review-card {
+                width: 360px;
+            }
+        }
+
+        /* Large LED (1601px - 1920px) */
+        @media (min-width: 1601px) and (max-width: 1920px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+
+            .inner-content {
+                max-width: 1600px;
+            }
+
+            .review-card {
+                width: 380px;
+            }
+
+            .stats-grid {
+                gap: 2.5rem;
+            }
+        }
+
+        /* Extra Large LED (1921px - 2560px) */
+        @media (min-width: 1921px) and (max-width: 2560px) {
+            .hero-title {
+                font-size: 5rem;
+            }
+
+            .hero-description {
+                font-size: 1.3rem;
+                max-width: 1200px;
+            }
+
+            .inner-content {
+                max-width: 1800px;
+            }
+
+            .review-card {
+                width: 420px;
+                padding: 1.8rem;
+            }
+
+            .stats-grid {
+                gap: 3rem;
+            }
+
+            .whyus-grid {
+                gap: 3rem;
+            }
+
+            .industries-grid {
+                gap: 2.5rem;
+            }
+
+            .service-name-box {
+                padding: 12px 28px;
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 3.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Projectors / Ultra Wide (2561px and above) */
+        @media (min-width: 2561px) {
+            .hero-title {
+                font-size: 6rem;
+            }
+
+            .hero-description {
+                font-size: 1.5rem;
+                max-width: 1400px;
+            }
+
+            .inner-content {
+                max-width: 2200px;
+            }
+
+            .review-card {
+                width: 480px;
+                padding: 2rem;
+            }
+
+            .stats-grid {
+                gap: 4rem;
+            }
+
+            .whyus-grid {
+                gap: 4rem;
+            }
+
+            .industries-grid {
+                gap: 3rem;
+            }
+
+            .service-name-box {
+                padding: 14px 35px;
+                font-size: 1.2rem;
+                margin: 0 10px;
+            }
+
+            .section-title {
+                font-size: 4rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .feedback-btn {
+                padding: 16px 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Fix for flip cards on all devices */
+        @media (max-width: 768px) {
+            .flip-card-front h3 {
+                font-size: 1rem;
+            }
+
+            .flip-card-front p {
+                font-size: 0.75rem;
+            }
+
+            .flip-card-back h4 {
+                font-size: 1rem;
+            }
+
+            .flip-card-back p,
+            .flip-card-back li {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Fix for navigation on tablets */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-menu {
+                gap: 12px;
+                padding: 4px 16px;
+            }
+
+            .nav-link {
+                font-size: 10px;
+            }
+
+            .nav-button-cta {
+                font-size: 10px;
+                padding: 4px 12px;
+            }
+        }
+
+        /* Fix for typewriter on all devices */
+        @media (max-width: 480px) {
+            .typewriter-container {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .typewriter-text-wrapper {
+                height: auto;
+                min-height: 30px;
+            }
+
+            .typewriter-slide {
+                position: relative;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /* Ensure marquee works smoothly on all devices */
+        @media (max-width: 768px) {
+            .marquee-row-left-to-right {
+                animation: scrollLeftToRight 12s linear infinite;
+            }
+
+            .marquee-row-right-to-left {
+                animation: scrollRightToLeft 12s linear infinite;
+            }
         }
     </style>
 </head>
@@ -1137,25 +1627,50 @@
                 </div>
             </a>
             <ul class="nav-menu" id="menuAnim">
-                <li><a href="index.html" class="nav-link"><span class="link-text">Home</span><span class="link-hover">Home</span></a></li>
-                <li class="nav-item"><a href="services.html" class="nav-link"><span class="link-text">Services</span><span class="link-hover">Services</span></a>
-                    <div class="dropdown-menu"><a href="services.html#soft-skills">Soft Skills & Leadership</a><a href="services.html#corporate">Corporate Training</a><a href="services.html#digital-marketing">Digital Marketing</a><a href="services.html#it-ecommerce">IT & Ecommerce</a><a href="services.html#ai">AI & Emerging Tech</a><a href="services.html#health-safety">Health & Safety</a></div>
+                <li><a href="index.html" class="nav-link"><span class="link-text">Home</span><span
+                            class="link-hover">Home</span></a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link"><span
+                            class="link-text">Services</span><span class="link-hover">Services</span></a>
+                    <div class="dropdown-menu"><a href="services.html#soft-skills">Soft Skills & Leadership</a><a
+                            href="services.html#corporate">Corporate Training</a><a
+                            href="services.html#digital-marketing">Digital Marketing</a><a
+                            href="services.html#it-ecommerce">IT & Ecommerce</a><a href="services.html#ai">AI & Emerging
+                            Tech</a><a href="services.html#health-safety">Health & Safety</a></div>
                 </li>
-                <li class="nav-item"><a href="projects.html" class="nav-link"><span class="link-text">Projects</span><span class="link-hover">Projects</span></a>
-                    <div class="dropdown-menu"><a href="projects.html#zeetech-web">Zeetech Website</a><a href="projects.html#zeetech-app">Zeetech Mobile App</a><a href="projects.html#zeetech-smm">Zeetech Social Media</a><a href="projects.html#ecommerce">E-Commerce Platform</a><a href="projects.html#training-portal">Corporate Training Portal</a><a href="projects.html#ai-chatbot">AI Chatbot Solution</a></div>
+                <li class="nav-item"><a href="projects.html" class="nav-link"><span
+                            class="link-text">Projects</span><span class="link-hover">Projects</span></a>
+                    <div class="dropdown-menu"><a href="projects.html#zeetech-web">Zeetech Website</a><a
+                            href="projects.html#zeetech-app">Zeetech Mobile App</a><a
+                            href="projects.html#zeetech-smm">Zeetech Social Media</a><a
+                            href="projects.html#ecommerce">E-Commerce Platform</a><a
+                            href="projects.html#training-portal">Corporate Training Portal</a><a
+                            href="projects.html#ai-chatbot">AI Chatbot Solution</a></div>
                 </li>
-                <li class="nav-item"><a href="courses.html" class="nav-link"><span class="link-text">Courses</span><span class="link-hover">Courses</span></a>
-                    <div class="dropdown-menu"><a href="courses.html#it-dev">IT & Development</a><a href="courses.html#marketing">Marketing & Creative</a><a href="courses.html#technical">Technical Skills</a><a href="courses.html#ai">AI & Emerging Tech</a><a href="courses.html#health-safety">Health & Safety</a><a href="courses.html#trading">Trading & Finance</a></div>
+                <li class="nav-item"><a href="courses.html" class="nav-link"><span class="link-text">Courses</span><span
+                            class="link-hover">Courses</span></a>
+                    <div class="dropdown-menu"><a href="courses.html#it-dev">IT & Development</a><a
+                            href="courses.html#marketing">Marketing & Creative</a><a
+                            href="courses.html#technical">Technical Skills</a><a href="courses.html#ai">AI & Emerging
+                            Tech</a><a href="courses.html#health-safety">Health & Safety</a><a
+                            href="courses.html#trading">Trading & Finance</a></div>
                 </li>
-                <li class="nav-item"><a href="careers.html" class="nav-link"><span class="link-text">Careers</span><span class="link-hover">Careers</span></a>
-                    <div class="dropdown-menu"><a href="careers.html#trainer">Senior Soft Skills Trainer</a><a href="careers.html#marketing">Digital Marketing Specialist</a><a href="careers.html#developer">Web Developer</a><a href="careers.html#sales">Corporate Sales Executive</a><a href="careers.html#intern">AI/ML Intern</a></div>
+                <li class="nav-item"><a href="careers.html" class="nav-link"><span class="link-text">Careers</span><span
+                            class="link-hover">Careers</span></a>
+                    <div class="dropdown-menu"><a href="careers.html#trainer">Senior Soft Skills Trainer</a><a
+                            href="careers.html#marketing">Digital Marketing Specialist</a><a
+                            href="careers.html#developer">Web Developer</a><a href="careers.html#sales">Corporate Sales
+                            Executive</a><a href="careers.html#intern">AI/ML Intern</a></div>
                 </li>
-                <li class="nav-item"><a href="contact.html" class="nav-link"><span class="link-text">Contact</span><span class="link-hover">Contact</span></a>
-                    <div class="dropdown-menu"><a href="contact.html#form">Contact Form</a><a href="contact.html#map">Our Location</a><a href="https://wa.me/923002457241">WhatsApp Us</a></div>
+                <li class="nav-item"><a href="contact.html" class="nav-link"><span class="link-text">Contact</span><span
+                            class="link-hover">Contact</span></a>
+                    <div class="dropdown-menu"><a href="contact.html#form">Contact Form</a><a
+                            href="contact.html#map">Our Location</a><a href="https://wa.me/923002457241">WhatsApp Us</a>
+                    </div>
                 </li>
             </ul>
             <div class="flex items-center gap-3" id="btnAnim">
-                <a href="https://wa.me/923002457241" class="nav-button-cta"><i class="fas fa-rocket"></i> Get Started</a>
+                <a href="https://wa.me/923002457241" class="nav-button-cta"><i class="fas fa-rocket"></i> Get
+                    Started</a>
                 <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
             </div>
         </div>
@@ -1172,7 +1687,8 @@
         <div class="absolute inset-0 bg-[#010521]/85"></div>
         <div class="relative inner-content text-center py-20" data-aos="fade-up">
             <h1 class="hero-title">Welcome to <span>Soft Skills Engineering</span></h1>
-            <p class="hero-description">Empowering businesses through expert-led training in soft skills, leadership, digital marketing, and AI. Get customized corporate programs that deliver measurable results.</p>
+            <p class="hero-description">Empowering businesses through expert-led training in soft skills, leadership,
+                digital marketing, and AI. Get customized corporate programs that deliver measurable results.</p>
             <div class="typewriter-container">
                 <span class="typewriter-label">We Specialize In</span>
                 <div class="typewriter-text-wrapper">
@@ -1190,17 +1706,35 @@
     <section id="stats" class="py-16" style="background: linear-gradient(135deg, #101D54, #010521);">
         <div class="inner-content">
             <div class="stats-grid">
-                <div class="stat-card" data-target="1500" data-suffix="+"><i class="fas fa-users text-white text-3xl"></i><h2 class="stat-number">0</h2><p>Trained Leaders</p></div>
-                <div class="stat-card" data-target="98" data-suffix="%"><i class="fas fa-chart-line text-white text-3xl"></i><h2 class="stat-number">0</h2><p>Success Rate</p></div>
-                <div class="stat-card" data-target="50" data-suffix="+"><i class="fas fa-building text-white text-3xl"></i><h2 class="stat-number">0</h2><p>Corporate Partners</p></div>
-                <div class="stat-card" data-target="12" data-suffix="+"><i class="fas fa-trophy text-white text-3xl"></i><h2 class="stat-number">0</h2><p>Industry Awards</p></div>
+                <div class="stat-card" data-target="1500" data-suffix="+"><i
+                        class="fas fa-users text-white text-3xl"></i>
+                    <h2 class="stat-number">0</h2>
+                    <p>Trained Leaders</p>
+                </div>
+                <div class="stat-card" data-target="98" data-suffix="%"><i
+                        class="fas fa-chart-line text-white text-3xl"></i>
+                    <h2 class="stat-number">0</h2>
+                    <p>Success Rate</p>
+                </div>
+                <div class="stat-card" data-target="50" data-suffix="+"><i
+                        class="fas fa-building text-white text-3xl"></i>
+                    <h2 class="stat-number">0</h2>
+                    <p>Corporate Partners</p>
+                </div>
+                <div class="stat-card" data-target="12" data-suffix="+"><i
+                        class="fas fa-trophy text-white text-3xl"></i>
+                    <h2 class="stat-number">0</h2>
+                    <p>Industry Awards</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Courses Marquee -->
     <div class="services-marquee-container">
-        <div class="inner-content"><h2 class="services-heading">Our <span>Courses</span></h2></div>
+        <div class="inner-content">
+            <h2 class="services-heading">Our <span>Courses</span></h2>
+        </div>
         <div class="services-track">
             <a href="services.html#soft-skills" class="service-name-box">Soft Skills & Leadership</a>
             <a href="services.html#corporate" class="service-name-box">Corporate Training</a>
@@ -1221,12 +1755,87 @@
     <!-- Why Choose Us -->
     <section class="py-20 full-width-section">
         <div class="inner-content">
-            <div data-aos="fade-up"><h2 class="section-title">Why <span>Choose Us</span></h2><p class="section-subtitle">Why Soft Skills Engineering?</p></div>
+            <div data-aos="fade-up">
+                <h2 class="section-title">Why <span>Choose Us</span></h2>
+                <p class="section-subtitle">Why Soft Skills Engineering?</p>
+            </div>
             <div class="whyus-grid">
-                <div class="flip-card" data-aos="fade-up"><div class="flip-card-inner"><div class="flip-card-front"><div class="whyus-icon"><i class="fas fa-chalkboard-user"></i></div><h3>Industry Experienced Trainers</h3><p>Learn from certified professionals with real-world industry experience.</p></div><div class="flip-card-back"><h4>Industry Experienced Trainers</h4><p>Our trainers bring 10+ years of industry experience across multiple sectors.</p><ul><li><i class="fas fa-check-circle"></i> Certified professionals</li><li><i class="fas fa-check-circle"></i> Real-world case studies</li><li><i class="fas fa-check-circle"></i> Practical industry insights</li><li><i class="fas fa-check-circle"></i> Ongoing mentorship support</li></ul></div></div></div>
-                <div class="flip-card" data-aos="fade-up"><div class="flip-card-inner"><div class="flip-card-front"><div class="whyus-icon"><i class="fas fa-bullseye"></i></div><h3>Practical & Results-Oriented</h3><p>Our methods deliver measurable, real-world results.</p></div><div class="flip-card-back"><h4>Practical & Results-Oriented</h4><p>Actionable learning that you can apply immediately to solve workplace challenges.</p><ul><li><i class="fas fa-check-circle"></i> Hands-on workshops</li><li><i class="fas fa-check-circle"></i> Real business scenarios</li><li><i class="fas fa-check-circle"></i> Measurable KPIs tracking</li><li><i class="fas fa-check-circle"></i> Post-training support</li></ul></div></div></div>
-                <div class="flip-card" data-aos="fade-up"><div class="flip-card-inner"><div class="flip-card-front"><div class="whyus-icon"><i class="fas fa-puzzle-piece"></i></div><h3>Customized Solutions</h3><p>Tailored strategies for your organizational goals.</p></div><div class="flip-card-back"><h4>Customized Solutions</h4><p>No one-size-fits-all. Solutions tailored to your specific needs and culture.</p><ul><li><i class="fas fa-check-circle"></i> Needs assessment first</li><li><i class="fas fa-check-circle"></i> Custom curriculum design</li><li><i class="fas fa-check-circle"></i> Flexible delivery options</li><li><i class="fas fa-check-circle"></i> Industry-specific content</li></ul></div></div></div>
-                <div class="flip-card" data-aos="fade-up"><div class="flip-card-inner"><div class="flip-card-front"><div class="whyus-icon"><i class="fas fa-chart-line"></i></div><h3>Proven Growth Strategies</h3><p>Data-backed methodologies for sustainable growth.</p></div><div class="flip-card-back"><h4>Proven Growth Strategies</h4><p>Data-backed methodologies proven across hundreds of successful organizations.</p><ul><li><i class="fas fa-check-circle"></i> Data-driven approach</li><li><i class="fas fa-check-circle"></i> Industry benchmarks</li><li><i class="fas fa-check-circle"></i> ROI measurement</li><li><i class="fas fa-check-circle"></i> Continuous improvement</li></ul></div></div></div>
+                <div class="flip-card" data-aos="fade-up">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="whyus-icon"><i class="fas fa-chalkboard-user"></i></div>
+                            <h3>Industry Experienced Trainers</h3>
+                            <p>Learn from certified professionals with real-world industry experience.</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Industry Experienced Trainers</h4>
+                            <p>Our trainers bring 10+ years of industry experience across multiple sectors.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Certified professionals</li>
+                                <li><i class="fas fa-check-circle"></i> Real-world case studies</li>
+                                <li><i class="fas fa-check-circle"></i> Practical industry insights</li>
+                                <li><i class="fas fa-check-circle"></i> Ongoing mentorship support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" data-aos="fade-up">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="whyus-icon"><i class="fas fa-bullseye"></i></div>
+                            <h3>Practical & Results-Oriented</h3>
+                            <p>Our methods deliver measurable, real-world results.</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Practical & Results-Oriented</h4>
+                            <p>Actionable learning that you can apply immediately to solve workplace challenges.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Hands-on workshops</li>
+                                <li><i class="fas fa-check-circle"></i> Real business scenarios</li>
+                                <li><i class="fas fa-check-circle"></i> Measurable KPIs tracking</li>
+                                <li><i class="fas fa-check-circle"></i> Post-training support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" data-aos="fade-up">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="whyus-icon"><i class="fas fa-puzzle-piece"></i></div>
+                            <h3>Customized Solutions</h3>
+                            <p>Tailored strategies for your organizational goals.</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Customized Solutions</h4>
+                            <p>No one-size-fits-all. Solutions tailored to your specific needs and culture.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Needs assessment first</li>
+                                <li><i class="fas fa-check-circle"></i> Custom curriculum design</li>
+                                <li><i class="fas fa-check-circle"></i> Flexible delivery options</li>
+                                <li><i class="fas fa-check-circle"></i> Industry-specific content</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" data-aos="fade-up">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="whyus-icon"><i class="fas fa-chart-line"></i></div>
+                            <h3>Proven Growth Strategies</h3>
+                            <p>Data-backed methodologies for sustainable growth.</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Proven Growth Strategies</h4>
+                            <p>Data-backed methodologies proven across hundreds of successful organizations.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Data-driven approach</li>
+                                <li><i class="fas fa-check-circle"></i> Industry benchmarks</li>
+                                <li><i class="fas fa-check-circle"></i> ROI measurement</li>
+                                <li><i class="fas fa-check-circle"></i> Continuous improvement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1234,19 +1843,40 @@
     <!-- Industries -->
     <section class="py-20 full-width-section" style="background: linear-gradient(135deg, #101D54, #010521);">
         <div class="inner-content">
-            <div data-aos="fade-up"><h2 class="section-title">Industries <span>We Serve</span></h2><p class="section-subtitle">Tailored solutions across diverse sectors</p></div>
+            <div data-aos="fade-up">
+                <h2 class="section-title">Industries <span>We Serve</span></h2>
+                <p class="section-subtitle">Tailored solutions across diverse sectors</p>
+            </div>
             <div class="industries-grid">
-                <div class="industry-card"><i class="fas fa-graduation-cap industry-icon"></i><h4>Education Sector</h4><p>Empowering educators & students</p></div>
-                <div class="industry-card"><i class="fas fa-hospital-user industry-icon"></i><h4>Healthcare Sector</h4><p>Enhancing patient care</p></div>
-                <div class="industry-card"><i class="fas fa-building industry-icon"></i><h4>Corporate Enterprises</h4><p>Driving excellence</p></div>
-                <div class="industry-card"><i class="fas fa-rocket industry-icon"></i><h4>Startups & SMEs</h4><p>Accelerating growth</p></div>
-                <div class="industry-card"><i class="fas fa-industry industry-icon"></i><h4>Industrial Trading</h4><p>Optimizing operations</p></div>
-                <div class="industry-card"><i class="fas fa-chart-line industry-icon"></i><h4>Financial Services</h4><p>Navigating markets</p></div>
+                <div class="industry-card"><i class="fas fa-graduation-cap industry-icon"></i>
+                    <h4>Education Sector</h4>
+                    <p>Empowering educators & students</p>
+                </div>
+                <div class="industry-card"><i class="fas fa-hospital-user industry-icon"></i>
+                    <h4>Healthcare Sector</h4>
+                    <p>Enhancing patient care</p>
+                </div>
+                <div class="industry-card"><i class="fas fa-building industry-icon"></i>
+                    <h4>Corporate Enterprises</h4>
+                    <p>Driving excellence</p>
+                </div>
+                <div class="industry-card"><i class="fas fa-rocket industry-icon"></i>
+                    <h4>Startups & SMEs</h4>
+                    <p>Accelerating growth</p>
+                </div>
+                <div class="industry-card"><i class="fas fa-industry industry-icon"></i>
+                    <h4>Industrial Trading</h4>
+                    <p>Optimizing operations</p>
+                </div>
+                <div class="industry-card"><i class="fas fa-chart-line industry-icon"></i>
+                    <h4>Financial Services</h4>
+                    <p>Navigating markets</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section - FEEDBACK IN MARQUEE ONLY -->
+    <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 full-width-section">
         <div class="inner-content">
             <div data-aos="fade-up">
@@ -1254,53 +1884,93 @@
                 <p class="section-subtitle">What our students say about us</p>
             </div>
         </div>
-        
-        <!-- MARQUEE - Static + Dynamic feedback will appear here -->
+
         <div class="marquee-container">
             <div class="marquee-row-left-to-right" id="marqueeRow1">
-                <!-- Static reviews -->
-                <div class="review-card" data-name="Ahmed Raza" data-title="Senior Analyst" data-review="The communication course completely transformed how I present to clients. Got promoted within 3 months!">
+                <!-- Static reviews - UPPER MARQUEE (5 reviews) -->
+                <div class="review-card" data-name="Ahmed Raza" data-title="Senior Analyst"
+                    data-review="The communication course completely transformed how I present to clients. Got promoted within 3 months!">
                     <div class="text-yellow-500 mb-2">★★★★★</div>
-                    <p>"The communication course completely transformed how I present to clients. Got promoted within 3 months!"</p>
+                    <p>"The communication course completely transformed how I present to clients. Got promoted within 3
+                        months!"</p>
                     <h4>Ahmed Raza</h4>
                     <p class="text-gray-500 text-sm">Senior Analyst</p>
                 </div>
-                <div class="review-card" data-name="Fatima Khan" data-title="Project Manager" data-review="Leadership training gave me practical tools. My team immediately increased their productivity by 40%!">
+                <div class="review-card" data-name="Fatima Khan" data-title="Project Manager"
+                    data-review="Leadership training gave me practical tools. My team immediately increased their productivity by 40%!">
                     <div class="text-yellow-500 mb-2">★★★★★</div>
-                    <p>"Leadership training gave me practical tools. My team immediately increased their productivity by 40%!"</p>
+                    <p>"Leadership training gave me practical tools. My team immediately increased their productivity by
+                        40%!"</p>
                     <h4>Fatima Khan</h4>
                     <p class="text-gray-500 text-sm">Project Manager</p>
                 </div>
-                <div class="review-card" data-name="Bilal Ahmed" data-title="Tech Lead" data-review="From nervous in meetings to leading weekly syncs. Best investment in my career.">
+                <div class="review-card" data-name="Bilal Ahmed" data-title="Tech Lead"
+                    data-review="From nervous in meetings to leading weekly syncs. Best investment in my career.">
                     <div class="text-yellow-500 mb-2">★★★★★</div>
                     <p>"From nervous in meetings to leading weekly syncs. Best investment in my career."</p>
                     <h4>Bilal Ahmed</h4>
                     <p class="text-gray-500 text-sm">Tech Lead</p>
                 </div>
+                <div class="review-card" data-name="Sarah Johnson" data-title="Marketing Director"
+                    data-review="The digital marketing workshop was outstanding! Increased our ROI by 60% within 2 months.">
+                    <div class="text-yellow-500 mb-2">★★★★★</div>
+                    <p>"The digital marketing workshop was outstanding! Increased our ROI by 60% within 2 months."</p>
+                    <h4>Sarah Johnson</h4>
+                    <p class="text-gray-500 text-sm">Marketing Director</p>
+                </div>
+                <div class="review-card" data-name="David Chen" data-title="Product Manager"
+                    data-review="Excellent training on AI and emerging tech. Now I can confidently lead my team through digital transformation.">
+                    <div class="text-yellow-500 mb-2">★★★★★</div>
+                    <p>"Excellent training on AI and emerging tech. Now I can confidently lead my team through digital
+                        transformation."</p>
+                    <h4>David Chen</h4>
+                    <p class="text-gray-500 text-sm">Product Manager</p>
+                </div>
             </div>
             <div class="marquee-row-right-to-left" id="marqueeRow2">
-                <div class="review-card" data-name="Sana Malik" data-title="HR Specialist" data-review="The emotional intelligence workshop was life-changing. Now I handle conflicts better and lead with empathy.">
+                <!-- Static reviews - LOWER MARQUEE (5 reviews) -->
+                <div class="review-card" data-name="Sana Malik" data-title="HR Specialist"
+                    data-review="The emotional intelligence workshop was life-changing. Now I handle conflicts better and lead with empathy.">
                     <div class="text-yellow-500 mb-2">★★★★★</div>
-                    <p>"The emotional intelligence workshop was life-changing. Now I handle conflicts better and lead with empathy."</p>
+                    <p>"The emotional intelligence workshop was life-changing. Now I handle conflicts better and lead
+                        with empathy."</p>
                     <h4>Sana Malik</h4>
                     <p class="text-gray-500 text-sm">HR Specialist</p>
                 </div>
-                <div class="review-card" data-name="Omar Farooq" data-title="Team Lead" data-review="The teamwork modules transformed how I work with colleagues. Highly recommended!">
+                <div class="review-card" data-name="Omar Farooq" data-title="Team Lead"
+                    data-review="The teamwork modules transformed how I work with colleagues. Highly recommended!">
                     <div class="text-yellow-500 mb-2">★★★★★</div>
                     <p>"The teamwork modules transformed how I work with colleagues. Highly recommended!"</p>
                     <h4>Omar Farooq</h4>
                     <p class="text-gray-500 text-sm">Team Lead</p>
                 </div>
-                <div class="review-card" data-name="Zainab Ali" data-title="Operations Manager" data-review="The training gave me the confidence to handle high-pressure situations. Exceptional program!">
+                <div class="review-card" data-name="Zainab Ali" data-title="Operations Manager"
+                    data-review="The training gave me the confidence to handle high-pressure situations. Exceptional program!">
                     <div class="text-yellow-500 mb-2">★★★★★</div>
-                    <p>"The training gave me the confidence to handle high-pressure situations. Exceptional program!"</p>
+                    <p>"The training gave me the confidence to handle high-pressure situations. Exceptional program!"
+                    </p>
                     <h4>Zainab Ali</h4>
                     <p class="text-gray-500 text-sm">Operations Manager</p>
                 </div>
+                <div class="review-card" data-name="Michael Brown" data-title="Sales Director"
+                    data-review="Corporate training program helped our team achieve record sales. Highly professional and results-driven.">
+                    <div class="text-yellow-500 mb-2">★★★★★</div>
+                    <p>"Corporate training program helped our team achieve record sales. Highly professional and
+                        results-driven."</p>
+                    <h4>Michael Brown</h4>
+                    <p class="text-gray-500 text-sm">Sales Director</p>
+                </div>
+                <div class="review-card" data-name="Emily Davis" data-title="CEO"
+                    data-review="Best investment in our people. The soft skills training elevated our entire organization's culture.">
+                    <div class="text-yellow-500 mb-2">★★★★★</div>
+                    <p>"Best investment in our people. The soft skills training elevated our entire organization's
+                        culture."</p>
+                    <h4>Emily Davis</h4>
+                    <p class="text-gray-500 text-sm">CEO</p>
+                </div>
             </div>
         </div>
-        
-        <!-- Share Your Feedback Button -->
+
         <div class="feedback-btn-container">
             <button class="feedback-btn" id="openFeedbackModalBtn">
                 <i class="fas fa-pen-fancy"></i> Share Your Feedback
@@ -1312,17 +1982,65 @@
     <footer class="bg-[#010521] pt-16 pb-8 border-t border-[#B00515]/20">
         <div class="inner-content">
             <div class="footer-grid mb-10">
-                <div><div class="brand-wrapper flex items-center gap-2 mb-4"><img src="static/image/logo.png" alt="Logo" class="h-10"></div><p class="text-gray-500 text-sm mb-4">Empowering professionals through practical soft skills training and modern IT solutions.</p><div class="flex gap-3"><a href="https://www.facebook.com/share/16r97iLUhc/?mibextid=wwXIfr" class="social-icon"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/softskillsengineering?igsh=MWQ0Z2ptbG9ramZ3aw%3D%3D&utm_source=qr" class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a><a href="https://www.tiktok.com/@soft.skills59?_r=1&_t=ZS-96D1X3JijXb" class="social-icon"><i class="fab fa-tiktok"></i></a></div></div>
-                <div><h4 class="text-white font-semibold text-lg mb-4">Our Services</h4><ul class="space-y-2"><li><a href="services.html" class="footer-link-custom">Soft Skills Training</a></li><li><a href="services.html" class="footer-link-custom">Leadership Development</a></li><li><a href="services.html" class="footer-link-custom">Corporate Training</a></li><li><a href="services.html" class="footer-link-custom">Digital Marketing</a></li><li><a href="services.html" class="footer-link-custom">IT & Ecommerce</a></li><li><a href="services.html" class="footer-link-custom">AI & Automation</a></li></ul></div>
-                <div><h4 class="text-white font-semibold text-lg mb-4">Quick Links</h4><ul class="space-y-2"><li><a href="index.html" class="footer-link-custom">Home</a></li><li><a href="services.html" class="footer-link-custom">Services</a></li><li><a href="projects.html" class="footer-link-custom">Our Projects</a></li><li><a href="courses.html" class="footer-link-custom">Courses</a></li><li><a href="careers.html" class="footer-link-custom">Careers</a></li><li><a href="contact.html" class="footer-link-custom">Contact Us</a></li></ul></div>
-                <div><h4 class="text-white font-semibold text-lg mb-4">Contact Info</h4><p class="text-gray-500 text-sm mb-2"><i class="fas fa-location-dot mr-2 text-[#B00515]"></i> D-110 5th floor, 6th Road, Satellite Town, Rawalpindi</p><p class="text-gray-500 text-sm mb-2"><i class="fas fa-phone mr-2 text-[#B00515]"></i> +92 300 2457241</p><p class="text-gray-500 text-sm"><i class="fas fa-envelope mr-2 text-[#B00515]"></i> info@softskills.it.com</p></div>
+                <div>
+                    <div class="brand-wrapper flex items-center gap-2 mb-4"><img src="static/image/logo.png" alt="Logo"
+                            class="h-10"></div>
+                    <p class="text-gray-500 text-sm mb-4">Empowering professionals through practical soft skills
+                        training and modern IT solutions.</p>
+                    <div class="flex gap-3"><a href="https://www.facebook.com/share/16r97iLUhc/?mibextid=wwXIfr"
+                            class="social-icon"><i class="fab fa-facebook-f"></i></a><a
+                            href="https://www.instagram.com/softskillsengineering?igsh=MWQ0Z2ptbG9ramZ3aw%3D%3D&utm_source=qr"
+                            class="social-icon"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon"><i
+                                class="fab fa-linkedin-in"></i></a><a
+                            href="https://www.tiktok.com/@soft.skills59?_r=1&_t=ZS-96D1X3JijXb" class="social-icon"><i
+                                class="fab fa-tiktok"></i></a></div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Our Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="footer-link-custom">Soft Skills Training</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Leadership Development</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Corporate Training</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Digital Marketing</a></li>
+                        <li><a href="services.html" class="footer-link-custom">IT & Ecommerce</a></li>
+                        <li><a href="services.html" class="footer-link-custom">AI & Automation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="footer-link-custom">Home</a></li>
+                        <li><a href="services.html" class="footer-link-custom">Services</a></li>
+                        <li><a href="projects.html" class="footer-link-custom">Our Projects</a></li>
+                        <li><a href="courses.html" class="footer-link-custom">Courses</a></li>
+                        <li><a href="careers.html" class="footer-link-custom">Careers</a></li>
+                        <li><a href="contact.html" class="footer-link-custom">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Contact Info</h4>
+                    <p class="text-gray-500 text-sm mb-2"><i class="fas fa-location-dot mr-2 text-[#B00515]"></i> D-110
+                        5th floor, 6th Road, Satellite Town, Rawalpindi</p>
+                    <p class="text-gray-500 text-sm mb-2"><i class="fas fa-phone mr-2 text-[#B00515]"></i> +92 300
+                        2457241</p>
+                    <p class="text-gray-500 text-sm"><i class="fas fa-envelope mr-2 text-[#B00515]"></i>
+                        info@softskills.it.com</p>
+                </div>
             </div>
-            <div class="border-t border-[#B00515]/20 pt-6 text-center"><p class="text-gray-500 text-sm">© 2026 Soft Skills Engineering | All Rights Reserved</p></div>
+            <div class="border-t border-[#B00515]/20 pt-6 text-center">
+                <p class="text-gray-500 text-sm">© 2026 Soft Skills Engineering | All Rights Reserved</p>
+            </div>
         </div>
     </footer>
 
     <!-- Testimonial Modal -->
-    <div id="testimonialModal" class="testimonial-modal"><div class="modal-content"><span class="close-modal">&times;</span><h3 id="modalName" class="text-[#B00515]"></h3><div class="reviewer-title text-white mt-2" id="modalTitle"></div><p id="modalReview" class="mt-4 text-gray-300"></p></div></div>
+    <div id="testimonialModal" class="testimonial-modal">
+        <div class="modal-content"><span class="close-modal">&times;</span>
+            <h3 id="modalName" class="text-[#B00515]"></h3>
+            <div class="reviewer-title text-white mt-2" id="modalTitle"></div>
+            <p id="modalReview" class="mt-4 text-gray-300"></p>
+        </div>
+    </div>
 
     <!-- Feedback Modal -->
     <div id="feedbackModal" class="feedback-modal">
@@ -1331,13 +2049,27 @@
             <h3><i class="fas fa-star"></i> Share Your Experience</h3>
             <div class="modal-subtitle">Your feedback helps us grow and serve you better</div>
             <form id="feedbackForm">
-                <div class="form-group"><label><i class="fas fa-user"></i> Your Name *</label><input type="text" name="Name" required placeholder="e.g., Ahmed Raza"></div>
-                <div class="form-group"><label><i class="fas fa-briefcase"></i> Job Title / Role *</label><input type="text" name="Title" required placeholder="e.g., Project Manager"></div>
-                <div class="form-group"><label><i class="fas fa-star"></i> Your Rating *</label><div class="rating-stars"><input type="radio" name="Rating" value="5" id="star5"><label for="star5">★</label><input type="radio" name="Rating" value="4" id="star4"><label for="star4">★</label><input type="radio" name="Rating" value="3" id="star3"><label for="star3">★</label><input type="radio" name="Rating" value="2" id="star2"><label for="star2">★</label><input type="radio" name="Rating" value="1" id="star1"><label for="star1">★</label></div></div>
-                <div class="form-group"><label><i class="fas fa-comment"></i> Your Feedback *</label><textarea name="Feedback" rows="4" required placeholder="Share your learning experience with us..."></textarea></div>
-                <div id="formSuccessMsg" class="form-success-msg"><i class="fas fa-check-circle"></i> Thank you! Your feedback has been submitted successfully.</div>
-                <div id="formErrorMsg" class="form-error-msg"><i class="fas fa-exclamation-triangle"></i> Something went wrong. Please try again.</div>
-                <button type="submit" class="submit-feedback-btn"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
+                <div class="form-group"><label><i class="fas fa-user"></i> Your Name *</label><input type="text"
+                        name="Name" required placeholder="e.g., Ahmed Raza"></div>
+                <div class="form-group"><label><i class="fas fa-briefcase"></i> Job Title / Role *</label><input
+                        type="text" name="Title" required placeholder="e.g., Project Manager"></div>
+                <div class="form-group"><label><i class="fas fa-star"></i> Your Rating *</label>
+                    <div class="rating-stars"><input type="radio" name="Rating" value="5" id="star5"><label
+                            for="star5">★</label><input type="radio" name="Rating" value="4" id="star4"><label
+                            for="star4">★</label><input type="radio" name="Rating" value="3" id="star3"><label
+                            for="star3">★</label><input type="radio" name="Rating" value="2" id="star2"><label
+                            for="star2">★</label><input type="radio" name="Rating" value="1" id="star1"><label
+                            for="star1">★</label></div>
+                </div>
+                <div class="form-group"><label><i class="fas fa-comment"></i> Your Feedback *</label><textarea
+                        name="Feedback" rows="4" required
+                        placeholder="Share your learning experience with us..."></textarea></div>
+                <div id="formSuccessMsg" class="form-success-msg"><i class="fas fa-check-circle"></i> Thank you! Your
+                    feedback has been submitted successfully.</div>
+                <div id="formErrorMsg" class="form-error-msg"><i class="fas fa-exclamation-triangle"></i> Something went
+                    wrong. Please try again.</div>
+                <button type="submit" class="submit-feedback-btn"><i class="fas fa-paper-plane"></i> Submit
+                    Feedback</button>
             </form>
         </div>
     </div>
@@ -1345,11 +2077,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, duration: 600 });
-        
-        // ========== GOOGLE SHEETS API ==========
+
         const SHEET_BEST_API = "https://api.sheetbest.com/sheets/ed70f95f-c19d-458f-be70-554c42637482";
-        
-        // Function to create review card HTML
+
         function createReviewCardHTML(name, title, rating, feedback) {
             const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
             return `<div class="review-card" data-name="${escapeHtml(name)}" data-title="${escapeHtml(title)}" data-review="${escapeHtml(feedback)}">
@@ -1359,49 +2089,45 @@
                         <p class="text-gray-500 text-sm">${escapeHtml(title)}</p>
                     </div>`;
         }
-        
+
         function escapeHtml(str) {
             if (!str) return '';
-            return str.replace(/[&<>]/g, function(m) {
+            return str.replace(/[&<>]/g, function (m) {
                 if (m === '&') return '&amp;';
                 if (m === '<') return '&lt;';
                 if (m === '>') return '&gt;';
                 return m;
             });
         }
-        
-        // Static reviews HTML (to preserve)
+
         const staticRow1HTML = document.getElementById('marqueeRow1')?.innerHTML || '';
         const staticRow2HTML = document.getElementById('marqueeRow2')?.innerHTML || '';
-        
-        // Load approved feedback and add to marquee
+
         async function loadAndAddToMarquee() {
             try {
                 const response = await fetch(SHEET_BEST_API);
                 const data = await response.json();
-                
+
                 const approved = data.filter(item => {
                     const approvedVal = item.Approved || "";
                     return approvedVal.toString().toUpperCase() === "YES";
                 });
-                
+
                 const row1 = document.getElementById('marqueeRow1');
                 const row2 = document.getElementById('marqueeRow2');
-                
+
                 if (!row1 || !row2) return;
-                
+
                 if (approved.length === 0) {
-                    // No approved feedback, just show static
                     row1.innerHTML = staticRow1HTML;
                     row2.innerHTML = staticRow2HTML;
                     attachCardClickListeners();
                     return;
                 }
-                
-                // Build dynamic cards HTML
+
                 let dynamicHTMLRow1 = '';
                 let dynamicHTMLRow2 = '';
-                
+
                 approved.forEach((item, index) => {
                     const cardHTML = createReviewCardHTML(
                         item.Name || 'Anonymous',
@@ -1409,30 +2135,27 @@
                         parseInt(item.Rating) || 5,
                         item.Feedback || ''
                     );
-                    // Distribute between row1 and row2
                     if (index % 2 === 0) {
                         dynamicHTMLRow1 += cardHTML;
                     } else {
                         dynamicHTMLRow2 += cardHTML;
                     }
                 });
-                
-                // Combine static + dynamic
+
                 row1.innerHTML = staticRow1HTML + dynamicHTMLRow1;
                 row2.innerHTML = staticRow2HTML + dynamicHTMLRow2;
-                
-                // Re-attach click listeners
+
                 attachCardClickListeners();
-                
+
             } catch (error) {
                 console.error('Error loading testimonials:', error);
             }
         }
-        
+
         function attachCardClickListeners() {
             document.querySelectorAll('.review-card').forEach(card => {
                 card.removeEventListener('click', card._clickHandler);
-                const handler = function() {
+                const handler = function () {
                     document.getElementById('modalName').textContent = this.getAttribute('data-name');
                     document.getElementById('modalTitle').innerHTML = this.getAttribute('data-title');
                     document.getElementById('modalReview').textContent = this.getAttribute('data-review');
@@ -1442,14 +2165,14 @@
                 card._clickHandler = handler;
             });
         }
-        
+
         async function submitToGoogleSheets(formData) {
             const now = new Date();
             const timestamp = now.toLocaleString('en-GB', {
                 day: '2-digit', month: '2-digit', year: 'numeric',
                 hour: '2-digit', minute: '2-digit', second: '2-digit'
             });
-            
+
             const payload = {
                 Name: formData.get('Name'),
                 Title: formData.get('Title'),
@@ -1458,16 +2181,16 @@
                 Timestamp: timestamp,
                 Approved: "NO"
             };
-            
+
             const response = await fetch(SHEET_BEST_API, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
-            
+
             return response.ok;
         }
-        
+
         const lenis = new Lenis({ duration: 1.0 });
         function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
@@ -1482,7 +2205,7 @@
             if (window.scrollY > 50) nav.classList.add('nav-scrolled');
             else nav.classList.remove('nav-scrolled');
         });
-        
+
         document.getElementById('backToTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
         const words = ["Soft Skills & Leadership", "Corporate Training", "Digital Marketing", "IT & Ecommerce", "AI & Emerging Tech", "Health & Safety", "Web Development", "Mobile App Development"];
@@ -1531,27 +2254,33 @@
 
         window.addEventListener('load', () => {
             gsap.to(".sheryians-nav", { opacity: 1, y: 0, duration: 0.7 });
-            
-            // Load Google Sheets feedback into marquee
-            loadAndAddToMarquee();
-            
-            // Clone marquee for infinite scroll
+
+            const servicesTrack = document.querySelector('.services-track');
+            if (servicesTrack && !servicesTrack.hasAttribute('data-cloned')) {
+                const originalHTML = servicesTrack.innerHTML;
+                servicesTrack.innerHTML = originalHTML + originalHTML;
+                servicesTrack.setAttribute('data-cloned', 'true');
+            }
+
             const row1 = document.querySelector('.marquee-row-left-to-right');
             const row2 = document.querySelector('.marquee-row-right-to-left');
-            if (row1 && row2 && !row1.hasAttribute('data-cloned')) {
+            if (row1 && !row1.hasAttribute('data-cloned')) {
                 const clone1 = row1.innerHTML;
-                const clone2 = row2.innerHTML;
                 row1.innerHTML = clone1 + clone1;
-                row2.innerHTML = clone2 + clone2;
                 row1.setAttribute('data-cloned', 'true');
+            }
+            if (row2 && !row2.hasAttribute('data-cloned')) {
+                const clone2 = row2.innerHTML;
+                row2.innerHTML = clone2 + clone2;
                 row2.setAttribute('data-cloned', 'true');
             }
 
+            loadAndAddToMarquee();
             attachCardClickListeners();
 
             let currentFlippedCard = null;
             document.querySelectorAll('.flip-card').forEach(card => {
-                card.addEventListener('click', function() {
+                card.addEventListener('click', function () {
                     if (currentFlippedCard && currentFlippedCard !== this && currentFlippedCard.classList.contains('flipped')) {
                         currentFlippedCard.classList.remove('flipped');
                     }
@@ -1606,7 +2335,6 @@
             });
         }
 
-        // Feedback Modal Submission
         const feedbackModal = document.getElementById('feedbackModal');
         const openFeedbackBtn = document.getElementById('openFeedbackModalBtn');
         const closeFeedbackBtn = document.querySelector('.close-feedback-modal');
@@ -1628,13 +2356,13 @@
         if (feedbackModal) {
             feedbackModal.addEventListener('click', (e) => { if (e.target === feedbackModal) feedbackModal.classList.remove('active'); });
         }
-        
+
         if (feedbackForm) {
             feedbackForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 if (successMsg) successMsg.style.display = 'none';
                 if (errorMsg) errorMsg.style.display = 'none';
-                
+
                 const ratingSelected = document.querySelector('input[name="Rating"]:checked');
                 if (!ratingSelected) {
                     if (errorMsg) {
@@ -1643,15 +2371,15 @@
                     }
                     return;
                 }
-                
+
                 const submitBtn = feedbackForm.querySelector('.submit-feedback-btn');
                 if (submitBtn) {
                     submitBtn.disabled = true;
                     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
                 }
-                
+
                 const formData = new FormData(feedbackForm);
-                
+
                 try {
                     const result = await submitToGoogleSheets(formData);
                     if (result) {
@@ -1660,7 +2388,7 @@
                         setTimeout(() => {
                             feedbackModal.classList.remove('active');
                             if (successMsg) successMsg.style.display = 'none';
-                            loadAndAddToMarquee(); // Refresh marquee
+                            loadAndAddToMarquee();
                         }, 3000);
                     } else {
                         if (errorMsg) {
@@ -1684,8 +2412,7 @@
                 }
             });
         }
-        
-        // Auto-refresh marquee every 30 seconds
+
         setInterval(loadAndAddToMarquee, 30000);
     </script>
 </body>

@@ -110,8 +110,7 @@
             height: 70px;
             position: relative;
         }
-
-        .brand-wrapper {
+  .brand-wrapper {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -152,7 +151,6 @@
             line-height: 1;
             margin-top: 2px;
         }
-
         .nav-menu {
             display: flex;
             align-items: center;
@@ -632,6 +630,330 @@
                 font-size: 1rem;
             }
         }
+
+        /* ========== RESPONSIVE BREAKPOINTS FOR CAREERS PAGE ========== */
+
+/* Mobile Portrait (up to 480px) */
+@media (max-width: 480px) {
+    .page-header {
+        padding: 100px 15px 20px;
+    }
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    .page-header p {
+        font-size: 0.75rem;
+        padding: 0 10px;
+    }
+    .jobs-grid {
+        max-width: 100%;
+        padding: 0.8rem;
+    }
+    .job-card {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    .job-title {
+        font-size: 1rem;
+    }
+    .job-location, .job-type {
+        font-size: 0.6rem;
+        margin-right: 0.8rem;
+    }
+    .job-desc {
+        font-size: 0.65rem;
+        margin-top: 0.4rem;
+        margin-bottom: 0.5rem;
+    }
+    .apply-btn {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.8rem;
+    }
+    .email-text {
+        font-size: 0.7rem;
+    }
+    .modal-content {
+        padding: 1rem;
+        width: 95%;
+    }
+    .modal-content h3 {
+        font-size: 1.1rem;
+    }
+    .modal-content p, .modal-content li {
+        font-size: 0.7rem;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+    }
+    .brand-wrapper {
+        justify-content: center;
+    }
+    .social-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+    .footer-link-custom {
+        font-size: 0.7rem;
+    }
+}
+
+/* Mobile Landscape (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .page-header {
+        padding: 110px 20px 25px;
+    }
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    .jobs-grid {
+        max-width: 500px;
+        padding: 1rem;
+    }
+    .job-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    .job-title {
+        font-size: 1.1rem;
+    }
+    .job-location, .job-type {
+        font-size: 0.65rem;
+    }
+    .job-desc {
+        font-size: 0.7rem;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+    }
+}
+
+/* Tablet Portrait (769px - 900px) */
+@media (min-width: 769px) and (max-width: 900px) {
+    .page-header {
+        padding: 120px 20px 30px;
+    }
+    .jobs-grid {
+        max-width: 700px;
+        padding: 1.2rem;
+    }
+    .job-card {
+        padding: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Tablet Landscape (901px - 1024px) */
+@media (min-width: 901px) and (max-width: 1024px) {
+    .jobs-grid {
+        max-width: 800px;
+        padding: 1.2rem;
+    }
+    .job-card {
+        padding: 1.3rem;
+        margin-bottom: 1.3rem;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Laptop (1025px - 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .jobs-grid {
+        max-width: 900px;
+    }
+    .job-card {
+        padding: 1.4rem;
+        margin-bottom: 1.3rem;
+    }
+    .job-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* Desktop (1367px - 1600px) */
+@media (min-width: 1367px) and (max-width: 1600px) {
+    .jobs-grid {
+        max-width: 1000px;
+    }
+    .job-card {
+        padding: 1.5rem;
+        margin-bottom: 1.4rem;
+    }
+    .job-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* Large LED (1601px - 1920px) */
+@media (min-width: 1601px) and (max-width: 1920px) {
+    .jobs-grid {
+        max-width: 1100px;
+    }
+    .job-card {
+        padding: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    .job-title {
+        font-size: 1.3rem;
+    }
+    .job-desc {
+        font-size: 0.85rem;
+    }
+    .page-header h1 {
+        font-size: 2.8rem;
+    }
+}
+
+/* Extra Large LED (1921px - 2560px) */
+@media (min-width: 1921px) and (max-width: 2560px) {
+    .jobs-grid {
+        max-width: 1300px;
+    }
+    .job-card {
+        padding: 1.8rem;
+        margin-bottom: 1.6rem;
+    }
+    .job-title {
+        font-size: 1.4rem;
+    }
+    .job-location, .job-type {
+        font-size: 0.85rem;
+    }
+    .job-desc {
+        font-size: 0.9rem;
+    }
+    .apply-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 1.2rem;
+    }
+    .email-text {
+        font-size: 0.9rem;
+    }
+    .page-header h1 {
+        font-size: 3rem;
+    }
+    .page-header p {
+        font-size: 1rem;
+    }
+}
+
+/* Projectors / Ultra Wide (2561px and above) */
+@media (min-width: 2561px) {
+    .jobs-grid {
+        max-width: 1600px;
+    }
+    .job-card {
+        padding: 2rem;
+        margin-bottom: 1.8rem;
+    }
+    .job-title {
+        font-size: 1.6rem;
+    }
+    .job-location, .job-type {
+        font-size: 0.9rem;
+    }
+    .job-desc {
+        font-size: 1rem;
+    }
+    .apply-btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1.5rem;
+    }
+    .email-text {
+        font-size: 1rem;
+    }
+    .page-header h1 {
+        font-size: 3.5rem;
+    }
+    .page-header p {
+        font-size: 1.1rem;
+        max-width: 800px;
+    }
+    .modal-content {
+        max-width: 800px;
+    }
+    .modal-content h3 {
+        font-size: 1.8rem;
+    }
+    .modal-content p, .modal-content li {
+        font-size: 1rem;
+    }
+}
+
+/* Navigation responsive fix for careers page */
+@media (max-width: 1024px) {
+    .nav-menu {
+        display: none;
+    }
+    .mobile-menu-btn {
+        display: block;
+    }
+    .nav-button-cta {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .nav-menu {
+        gap: 12px;
+        padding: 4px 16px;
+    }
+    .nav-link {
+        font-size: 10px;
+    }
+    .nav-button-cta {
+        font-size: 10px;
+        padding: 4px 12px;
+    }
+}
+
+/* Footer responsive fix */
+@media (max-width: 640px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.2rem;
+    }
+    .brand-wrapper {
+        justify-content: center;
+    }
+    .social-icon {
+        margin: 0 auto;
+    }
+    .footer-link-custom {
+        font-size: 0.75rem;
+    }
+}
+
+/* Modal responsive fix */
+@media (max-width: 480px) {
+    .modal-content {
+        max-width: 95%;
+        padding: 1rem;
+    }
+    .close-modal {
+        top: 10px;
+        right: 12px;
+        font-size: 22px;
+    }
+}
+
+/* Job card hover effect fix for touch devices */
+@media (max-width: 768px) {
+    .job-card:hover {
+        transform: translateX(0);
+    }
+}
     </style>
 </head>
 

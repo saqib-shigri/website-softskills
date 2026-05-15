@@ -614,6 +614,364 @@
                 height: 160px;
             }
         }
+
+        /* ========== RESPONSIVE BREAKPOINTS FOR PROJECTS PAGE ========== */
+
+/* Mobile Portrait (up to 480px) */
+@media (max-width: 480px) {
+    .page-header {
+        padding: 100px 15px 20px;
+    }
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    .page-header p {
+        font-size: 0.7rem;
+        padding: 0 10px;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+        max-width: 100%;
+    }
+    .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+        min-height: 360px;
+    }
+    .front-icon {
+        font-size: 2.2rem;
+    }
+    .front-title {
+        font-size: 1rem;
+    }
+    .front-subtitle {
+        font-size: 0.65rem;
+    }
+    .front-desc {
+        font-size: 0.65rem;
+    }
+    .back-image {
+        height: 100px;
+    }
+    .back-title {
+        font-size: 0.85rem;
+    }
+    .back-desc {
+        font-size: 0.6rem;
+    }
+    .tech-tags span {
+        font-size: 0.5rem;
+        padding: 0.1rem 0.4rem;
+    }
+    .demo-link {
+        font-size: 0.55rem;
+        padding: 0.2rem 0.6rem;
+    }
+    .click-hint {
+        font-size: 0.55rem;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+    }
+    .brand-wrapper {
+        justify-content: center;
+    }
+    .social-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+}
+
+/* Mobile Landscape (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .page-header {
+        padding: 110px 20px 25px;
+    }
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1rem;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+        min-height: 380px;
+    }
+    .front-icon {
+        font-size: 2.5rem;
+    }
+    .front-title {
+        font-size: 1.1rem;
+    }
+    .back-image {
+        height: 110px;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+    }
+}
+
+/* Tablet Portrait (769px - 900px) */
+@media (min-width: 769px) and (max-width: 900px) {
+    .page-header {
+        padding: 120px 20px 30px;
+    }
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        padding: 1.2rem;
+        max-width: 800px;
+    }
+    .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+        min-height: 400px;
+    }
+    .back-image {
+        height: 120px;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Tablet Landscape (901px - 1024px) */
+@media (min-width: 901px) and (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.3rem;
+        padding: 1.3rem;
+        max-width: 950px;
+    }
+    .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+        min-height: 400px;
+    }
+    .back-image {
+        height: 130px;
+    }
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Laptop (1025px - 1366px) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        max-width: 1100px;
+    }
+    .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+        min-height: 400px;
+    }
+    .back-image {
+        height: 140px;
+    }
+}
+
+/* Desktop (1367px - 1600px) */
+@media (min-width: 1367px) and (max-width: 1600px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        max-width: 1300px;
+    }
+    .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+        min-height: 420px;
+    }
+    .back-image {
+        height: 150px;
+    }
+    .front-icon {
+        font-size: 3rem;
+    }
+    .front-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* Large LED (1601px - 1920px) */
+@media (min-width: 1601px) and (max-width: 1920px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.8rem;
+        max-width: 1500px;
+    }
+    .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+        min-height: 440px;
+    }
+    .back-image {
+        height: 160px;
+    }
+    .front-icon {
+        font-size: 3.2rem;
+    }
+    .front-title {
+        font-size: 1.3rem;
+    }
+    .page-header h1 {
+        font-size: 2.8rem;
+    }
+}
+
+/* Extra Large LED (1921px - 2560px) */
+@media (min-width: 1921px) and (max-width: 2560px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1700px;
+    }
+    .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+        min-height: 480px;
+    }
+    .back-image {
+        height: 180px;
+    }
+    .front-icon {
+        font-size: 3.5rem;
+    }
+    .front-title {
+        font-size: 1.5rem;
+    }
+    .front-subtitle {
+        font-size: 0.9rem;
+    }
+    .front-desc {
+        font-size: 0.85rem;
+    }
+    .back-title {
+        font-size: 1.1rem;
+    }
+    .back-desc {
+        font-size: 0.8rem;
+    }
+    .tech-tags span {
+        font-size: 0.7rem;
+    }
+    .demo-link {
+        font-size: 0.75rem;
+    }
+    .page-header h1 {
+        font-size: 3rem;
+    }
+    .page-header p {
+        font-size: 1rem;
+    }
+}
+
+/* Projectors / Ultra Wide (2561px and above) */
+@media (min-width: 2561px) {
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.2rem;
+        max-width: 2200px;
+    }
+    .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+        min-height: 520px;
+    }
+    .back-image {
+        height: 200px;
+    }
+    .front-icon {
+        font-size: 4rem;
+    }
+    .front-title {
+        font-size: 1.6rem;
+    }
+    .front-subtitle {
+        font-size: 1rem;
+    }
+    .front-desc {
+        font-size: 0.9rem;
+    }
+    .back-title {
+        font-size: 1.2rem;
+    }
+    .back-desc {
+        font-size: 0.85rem;
+    }
+    .tech-tags span {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
+    }
+    .demo-link {
+        font-size: 0.85rem;
+        padding: 0.4rem 1rem;
+    }
+    .page-header h1 {
+        font-size: 3.5rem;
+    }
+    .page-header p {
+        font-size: 1.1rem;
+        max-width: 800px;
+    }
+}
+
+/* Navigation responsive fix for projects page */
+@media (max-width: 1024px) {
+    .nav-menu {
+        display: none;
+    }
+    .mobile-menu-btn {
+        display: block;
+    }
+    .nav-button-cta {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .nav-menu {
+        gap: 12px;
+        padding: 4px 16px;
+    }
+    .nav-link {
+        font-size: 10px;
+    }
+    .nav-button-cta {
+        font-size: 10px;
+        padding: 4px 12px;
+    }
+}
+
+/* Footer responsive fix */
+@media (max-width: 640px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .brand-wrapper {
+        justify-content: center;
+    }
+    .social-icon {
+        margin: 0 auto;
+    }
+}
+
+/* Fix for images on all devices */
+.back-image {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.6rem;
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+}
+
+.back-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
     </style>
 </head>
 

@@ -1,0 +1,20 @@
+# Soft Skills Engineering - Robots.txt
+# Hostinger SEO Configuration
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /services.html
+Allow: /projects.html
+Allow: /courses.html
+Allow: /careers.html
+Allow: /contact.html
+Allow: /sitemap.html
+
+# Disallow pages
+Disallow: /thank-you.html
+Disallow: /static/
+Disallow: /404.html
+
+# Sitemap location
+Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
